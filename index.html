@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manav Darji - AI/ML Engineer</title>
+    <meta name="description" content="Portfolio of Manav Darji - AI/ML Engineer and Full-Stack Developer specializing in artificial intelligence, machine learning and web development.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <canvas id="particles-canvas"></canvas>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#internship">Internship Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="floating">Manav Viral Darji</h1>
+            <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0; animation: fadeIn 1s ease-out 1.5s forwards;">
+                Building the future with Artificial Intelligence, Machine Learning, and cutting-edge technology solutions
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm an aspiring AI/ML Engineer currently pursuing B.Sc. in Artificial Intelligence & Machine Learning (HONS), expected to graduate in 2027. My passion lies in building and optimizing AI models using cutting-edge technologies like TensorFlow, PyTorch, and Scikit-learn.</p>  
+                <p>With expertise in LLM training, model deployment, and AI-driven automation, I've contributed to open-source projects including training Google's Gemma LLM model in Marathi. I love solving complex problems through innovative AI solutions and have experience in both research and industry applications.</p>
+                <p>Beyond AI/ML, I'm proficient in full-stack development, mobile app development, and cloud technologies. I believe in continuous learning and staying updated with the latest technological advancements.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div>Major Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div>Certifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div>Best Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">49</div>
+                    <div>NCL Rank (20K+ participants)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>🤖 AI/ML & Deep Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">LLM Training</span>
+                    <span class="skill-tag">GenAI</span>
+                    <span class="skill-tag">LangChain</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>💻 Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Kotlin</span>
+                    <span class="skill-tag">C#</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>🌐 Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Oracle</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>☁️ Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS S3</span>
+                    <span class="skill-tag">MLOps (Basic)</span>
+                    <span class="skill-tag">Model Deployment</span>
+                    <span class="skill-tag">API Integration</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>📊 Data Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Data Visualization</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>📱 Mobile Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Android (Kotlin)</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">App Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>🏠 Mumbai Price Prediction Model</h3>
+                <p>Built a comprehensive real estate price prediction system using Random Forest algorithm, trained on 3K+ property listings with 92% accuracy. Features advanced data preprocessing and visualization.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>🐱 Image Classification (Cats & Dogs)</h3>
+                <p>Developed a CNN-based image classifier using TensorFlow & Keras, trained on 2K+ labeled images from Kaggle achieving 94% accuracy with advanced data augmentation techniques.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Keras</span>
+                    <span class="tech-tag">CNN</span>
+                    <span class="tech-tag">Computer Vision</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>🤖 Personal AI Assistant</h3>
+                <p>Built an intelligent AI-powered assistant with voice command functionality, app opening capabilities, website search, and speech-to-text conversion similar to mobile Google Assistant.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Google API</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Voice Recognition</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>📊 Sentiment Analysis (NLP)</h3>
+                <p>Created a sophisticated sentiment analysis model trained on 50K+ Twitter reviews achieving 87% accuracy. Implemented advanced text preprocessing and feature engineering techniques.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Text Analysis</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>🇮🇳 Gemma Model Training (Marathi)</h3>
+                <p>Led a team to train Google's Gemma LLM model for Marathi language processing on Kaggle. Achieved 45% instance accuracy through hyperparameter tuning and optimization.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">LLM</span>
+                    <span class="tech-tag">Kaggle</span>
+                    <span class="tech-tag">Marathi NLP</span>
+                    <span class="tech-tag">Model Optimization</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>📅 GenAI Timetable Management</h3>
+                <p>Developed a GenAI-powered timetable generator for schools with teacher absence tracking and automatic rescheduling. Built as a responsive web application with full-stack implementation.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">GenAI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="internship">
+        <h2 class="section-title">Internship Experience</h2>
+        <div class="internship-content">
+            <div class="internship-card">
+                <h3>Tata Data Visualization</h3>
+                <p>Worked as a Data Visualization Intern at Tata, focusing on creating interactive dashboards and visualizations using Power BI. Developed skills in data storytelling and visualization best practices.</p>
+                <div class="internship-tech">
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">Data Visualization</span>
+                    <span class="tech-tag">Dashboard Development</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div> 
+            </div>
+            <div class="internship-card">
+                <h3>Work At College internship</h3>
+                <p>Manage website operations and oversee ongoing maintenance to ensure optimal performance, security, and functionality.</p>
+                <div class="internship-tech">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">Web Development</span>
+                    <span class="tech-tag">BUGs Fixing</span>
+                    <span class="tech-tag">Update the pre-build website</span>
+                </div>
+            </div>
+            <div class="internship-card">
+                <h3>AI/ML Developer With Google</h3>
+                <p>Learn About Machine Learning and DL in Depth with Google and AICTC & eduskill Work on DL TensorFlow</p>
+                <div class="internship-tech">
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">Google</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">TensorFlow-Lite for Mobile</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="achievements">
+        <h2 class="section-title">Achievements & Recognition</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">🏆</div>
+                <h3>ISRO Hackathon</h3>
+                <p>Learn a lunar terrain simulation model using DEM data, showcasing expertise in space technology and data visualization.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🥇</div>
+                <h3>National Coding League Rank 49</h3>
+                <p>Competed against 20,000+ participants in Round 2, demonstrating exceptional programming and problem-solving skills.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🌟</div>
+                <h3>Open-Source LLM Contributor</h3>
+                <p>Led team project training Google's Gemma LLM in Marathi, contributing to multilingual AI development.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">📜</div>
+                <h3>15+ Professional Certifications</h3>
+                <p>AWS ML, Google ML, Full-Stack Development, and specialized AI/ML certifications from leading platforms.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🏅</div>
+                <h3>Kaggle Competitions</h3>
+                <p>Active participant in AI challenges focusing on LLMs and image classification with consistent performance.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">💡</div>
+                <h3>Innovation in Education</h3>
+                <p>Developed AI-powered solutions for educational institutions, improving efficiency and automation.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 style="color: #4facfe; margin-bottom: 2rem;">Get In Touch</h3>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">📧</span>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:darjimanav3@gmail.com" style="color: #4facfe; text-decoration: none;">darjimanav3@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">💼</span>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        <a href="https://linkedin.com/in/manav-d-000955286" style="color: #4facfe; text-decoration: none;">Connect with me</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">🐙</span>
+                    <div>
+                        <strong>GitHub</strong><br>
+                        <a href="https://github.com/Manavdarji2" style="color: #4facfe; text-decoration: none;">@Manavdarji2</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">🏆</span>
+                    <div>
+                        <strong>Kaggle</strong><br>
+                        <a href="https://www.kaggle.com/manavdarji18" style="color: #4facfe; text-decoration: none;">View my competitions</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">👨‍💻</span>
+                    <div>
+                        <strong>Google Developer</strong><br>
+                        <a href="https://g.dev/Manav-Viral-Darji" style="color: #4facfe; text-decoration: none;">Manav-Darji</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="color: #4facfe; margin-bottom: 2rem;">Send a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Animated particles background
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const particles = [];
+        const particleCount = 50;
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(79, 172, 254, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        init();
+        animate();
+        // Scroll indicator
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollIndicator.style.width = `${scrollPercent}%`;
+        });
+        // Smooth scroll
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        // Responsive canvas size
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        const contactForm = document.querySelector('.contact-form form');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // Show loading state
+            submitButton.classList.add('loading');
+            submitButton.textContent = 'Sending...';
+            try {
+                // Add your form submission logic here
+                // Example: await fetch('/api/contact', {...})
+                // Show success message
+                const message = document.createElement('div');
+                message.className = 'message success show';
+                message.textContent = 'Message sent successfully!';
+                contactForm.insertBefore(message, submitButton);
+                // Reset form
+                contactForm.reset();
+            } catch (error) {
+                // Show error message
+                const message = document.createElement('div');
+                message.className = 'message error show';
+                message.textContent = 'Failed to send message. Please try again.';
+                contactForm.insertBefore(message, submitButton);
+            } finally {
+                // Reset button state
+                submitButton.classList.remove('loading');
+                submitButton.textContent = 'Send Message';
+                // Remove message after 5 seconds
+                setTimeout(() => {
+                    const message = contactForm.querySelector('.message');
+                    if (message) message.remove();
+                }, 5000);
+            }
+        });
+    </script>
+    <footer id="footer-data">
+        <div class="footer-content">
+            <p>&copy; 2023 Manav Darji. All rights reserved.</p>
+            <p>Designed and developed by Manav Darji</p>
+        </div>
+    </footer>
+</body>
+</html>
