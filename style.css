@@ -299,7 +299,7 @@ section {
 /* Contact Section */
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr /*1fr*/;
     gap: 3rem;
     align-items: start;
 }
@@ -323,15 +323,15 @@ section {
 .contact-item:hover {
     background: rgba(79, 172, 254, 0.1);
 }
-.contact-form {
+/* .contact-form {
     background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.form-group {
+} */
+/* .form-group {
     margin-bottom: 1.5rem;
 }
 .form-group input,
@@ -355,7 +355,7 @@ section {
     box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
 }
 /* Success/Error Messages */
-.message {
+/* .message {
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -364,8 +364,8 @@ section {
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-}
-.message.show {
+} */ 
+/* .message.show {
     opacity: 1;
     transform: translateY(0);
 }
@@ -378,7 +378,7 @@ section {
     background: rgba(255, 0, 0, 0.1);
     border: 1px solid rgba(255, 0, 0, 0.3);
     color: #ff6b6b;
-}
+} */
 /* Animations */
 @keyframes fadeInUp {
     from{
