@@ -3,430 +3,803 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manav Darji - AI/ML Engineer</title>
-    <meta name="description" content="Portfolio of Manav Darji - AI/ML Engineer and Full-Stack Developer specializing in artificial intelligence, machine learning and web development.">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="scroll-indicator" id="scrollIndicator"></div>
-    <canvas id="particles-canvas"></canvas>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#internship">Internship Experience</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-            
-        </ul>
-    </nav>
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="floating">Manav Viral Darji</h1>
-            <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0; animation: fadeIn 1s ease-out 1.5s forwards;">
-                Building the future with Artificial Intelligence, Machine Learning, and cutting-edge technology solutions
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm an aspiring AI/ML Engineer currently pursuing B.Sc. in Artificial Intelligence & Machine Learning (HONS), expected to graduate in 2027. My passion lies in building and optimizing AI models using cutting-edge technologies like TensorFlow, PyTorch, and Scikit-learn.</p>  
-                <p>With expertise in LLM training, model deployment, and AI-driven automation, I've contributed to open-source projects including training Google's Gemma LLM model in Marathi. I love solving complex problems through innovative AI solutions and have experience in both research and industry applications.</p>
-                <p>Beyond AI/ML, I'm proficient in full-stack development, mobile app development, and cloud technologies. I believe in continuous learning and staying updated with the latest technological advancements.</p>
-            </div>
-            <div class="about-stats">
-                <div class="stat-card">
-                    <div class="stat-number">6+</div>
-                    <div>Major Projects</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">20+</div>
-                    <div>Certifications</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">92%</div>
-                    <div>Best Model Accuracy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">49</div>
-                    <div>NCL Rank (20K+ participants)</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>🤖 AI/ML & Deep Learning</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">LLM Training</span>
-                    <span class="skill-tag">GenAI</span>
-                    <span class="skill-tag">LangChain</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>💻 Programming Languages</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Kotlin</span>
-                    <span class="skill-tag">C#</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>🌐 Web Development</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Flask</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Oracle</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>☁️ Cloud & DevOps</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">AWS S3</span>
-                    <span class="skill-tag">MLOps (Basic)</span>
-                    <span class="skill-tag">Model Deployment</span>
-                    <span class="skill-tag">API Integration</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>📊 Data Analysis</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Matplotlib</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">Data Visualization</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>📱 Mobile Development</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Android (Kotlin)</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">App Development</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>🏠 Mumbai Price Prediction Model</h3>
-                <p>Built a comprehensive real estate price prediction system using Random Forest algorithm, trained on 3K+ property listings with 92% accuracy. Features advanced data preprocessing and visualization.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pandas</span>
-                    <span class="tech-tag">Scikit-learn</span>
-                    <span class="tech-tag">Matplotlib</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>🐱 Image Classification (Cats & Dogs)</h3>
-                <p>Developed a CNN-based image classifier using TensorFlow & Keras, trained on 2K+ labeled images from Kaggle achieving 94% accuracy with advanced data augmentation techniques.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Keras</span>
-                    <span class="tech-tag">CNN</span>
-                    <span class="tech-tag">Computer Vision</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>🤖 Personal AI Assistant</h3>
-                <p>Built an intelligent AI-powered assistant with voice command functionality, app opening capabilities, website search, and speech-to-text conversion similar to mobile Google Assistant.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Google API</span>
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Voice Recognition</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>📊 Sentiment Analysis (NLP)</h3>
-                <p>Created a sophisticated sentiment analysis model trained on 50K+ Twitter reviews achieving 87% accuracy. Implemented advanced text preprocessing and feature engineering techniques.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Machine Learning</span>
-                    <span class="tech-tag">Text Analysis</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>🇮🇳 Gemma Model Training (Marathi)</h3>
-                <p>Led a team to train Google's Gemma LLM model for Marathi language processing on Kaggle. Achieved 45% instance accuracy through hyperparameter tuning and optimization.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">LLM</span>
-                    <span class="tech-tag">Kaggle</span>
-                    <span class="tech-tag">Marathi NLP</span>
-                    <span class="tech-tag">Model Optimization</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>📅 GenAI Timetable Management</h3>
-                <p>Developed a GenAI-powered timetable generator for schools with teacher absence tracking and automatic rescheduling. Built as a responsive web application with full-stack implementation.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">GenAI</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="internship">
-        <h2 class="section-title">Internship Experience</h2>
-        <div class="internship-content">
-            <div class="internship-card">
-                <h3>Tata Data Visualization</h3>
-                <p>Worked as a Data Visualization Intern at Tata, focusing on creating interactive dashboards and visualizations using Power BI. Developed skills in data storytelling and visualization best practices.</p>
-                <div class="internship-tech">
-                    <span class="tech-tag">Power BI</span>
-                    <span class="tech-tag">Data Visualization</span>
-                    <span class="tech-tag">Dashboard Development</span>
-                    <span class="tech-tag">Data Analysis</span>
-                </div> 
-            </div>
-            <div class="internship-card">
-                <h3>AI/ML Developer With Google</h3>
-                <p>Learn About Machine Learning and DL in Depth with Google and AICTC & eduskill Work on DL TensorFlow</p>
-                <div class="internship-tech">
-                    <span class="tech-tag">Machine Learning</span>
-                    <span class="tech-tag">Deep Learning</span>
-                    <span class="tech-tag">Google</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">TensorFlow-Lite for Mobile</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="achievements">
-        <h2 class="section-title">Achievements & Recognition</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">🏆</div>
-                <h3>ISRO Hackathon</h3>
-                <p>Learn a lunar terrain simulation model using DEM data, showcasing expertise in space technology and data visualization.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🥇</div>
-                <h3>National Coding League Rank 49</h3>
-                <p>Competed against 20,000+ participants in Round 2, demonstrating exceptional programming and problem-solving skills.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🌟</div>
-                <h3>Open-Source LLM Contributor</h3>
-                <p>Led team project training Google's Gemma LLM in Marathi, contributing to multilingual AI development.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">📜</div>
-                <h3>15+ Professional Certifications</h3>
-                <p>AWS ML, Google ML, Full-Stack Development, and specialized AI/ML certifications from leading platforms.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🏅</div>
-                <h3>Kaggle Competitions</h3>
-                <p>Active participant in AI challenges focusing on LLMs and image classification with consistent performance.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">💡</div>
-                <h3>Innovation in Education</h3>
-                <p>Developed AI-powered solutions for educational institutions, improving efficiency and automation.</p>
-            </div>
-        </div>
-    </section>
-    <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3 style="color: #4facfe; margin-bottom: 2rem;">Get In Touch</h3>
-                <div class="contact-item">
-                    <span style="font-size: 1.5rem;">📧</span>
-                    <div>
-                        <strong>Email</strong><br>
-                        <a href="mailto:darjimanav3@gmail.com" style="color: #4facfe; text-decoration: none;">darjimanav3@gmail.com</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span style="font-size: 1.5rem;">💼</span>
-                    <div>
-                        <strong>LinkedIn</strong><br>
-                        <a href="https://linkedin.com/in/manav-d-000955286" style="color: #4facfe; text-decoration: none;">Connect with me</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span style="font-size: 1.5rem;">🐙</span>
-                    <div>
-                        <strong>GitHub</strong><br>
-                        <a href="https://github.com/Manavdarji2" style="color: #4facfe; text-decoration: none;">@Manavdarji2</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span style="font-size: 1.5rem;">🏆</span>
-                    <div>
-                        <strong>Kaggle</strong><br>
-                        <a href="https://www.kaggle.com/manavdarji18" style="color: #4facfe; text-decoration: none;">View my competitions</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span style="font-size: 1.5rem;">👨‍💻</span>
-                    <div>
-                        <strong>Google Developer</strong><br>
-                        <a href="https://g.dev/Manav-Viral-Darji" style="color: #4facfe; text-decoration: none;">Manav-Darji</a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="contact-form">
-                <h3 style="color: #4facfe; margin-bottom: 2rem;">Send a Message</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div> -->
-        </div>
-    </section>
+    <title>Manav Viral Darji | AI Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script>
-        // Animated particles background
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const particles = [];
-        const particleCount = 50;
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(79, 172, 254, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050505',
+                        light: '#E6E6E6',
+                        accent: '#2563EB', /* Deeper Blue for Heroic feel */
+                        gray: {
+                            100: '#F3F4F6',
+                            800: '#1F2937',
+                            900: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    },
+                    cursor: {
+                        none: 'none',
+                    }
+                }
             }
         }
-        function init() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-        init();
-        animate();
-        // Scroll indicator
-        const scrollIndicator = document.getElementById('scrollIndicator');
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / scrollHeight) * 100;
-            scrollIndicator.style.width = `${scrollPercent}%`;
-        });
-        // Smooth scroll
-        const links = document.querySelectorAll('nav a');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-        // Responsive canvas size
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        const contactForm = document.querySelector('.contact-form form');
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            // Show loading state
-            submitButton.classList.add('loading');
-            submitButton.textContent = 'Sending...';
-            try {
-                // Add your form submission logic here
-                // Example: await fetch('/api/contact', {...})
-                // Show success message
-                const message = document.createElement('div');
-                message.className = 'message success show';
-                message.textContent = 'Message sent successfully!';
-                contactForm.insertBefore(message, submitButton);
-                // Reset form
-                contactForm.reset();
-            } catch (error) {
-                // Show error message
-                const message = document.createElement('div');
-                message.className = 'message error show';
-                message.textContent = 'Failed to send message. Please try again.';
-                contactForm.insertBefore(message, submitButton);
-            } finally {
-                // Reset button state
-                submitButton.classList.remove('loading');
-                submitButton.textContent = 'Send Message';
-                // Remove message after 5 seconds
-                setTimeout(() => {
-                    const message = contactForm.querySelector('.message');
-                    if (message) message.remove();
-                }, 5000);
-            }
-        });
     </script>
-    <footer id="footer-data">
-        <div class="footer-content">
-            <p>&copy; 2025 Manav Darji. All rights reserved.</p>
-            <p>Designed and developed by Manav Darji</p>
+
+    <style>
+        :root {
+            --cursor-size: 20px;
+        }
+
+        body {
+            background-color: #050505;
+            color: #E6E6E6;
+            cursor: none;
+            overflow-x: hidden;
+        }
+
+        /* --- 1. Custom Cursor --- */
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            mix-blend-mode: difference;
+        }
+        
+        #cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+        }
+
+        body.hovering #cursor {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- 2. Cinematic Grain --- */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.05;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTkAAAAAAAAAAABMTExERERmZmZnMy35AAAACHRSTlMAMwAqzMzMzMwnXT0AAAAJcEhZcwAAOxMAADsTRqt1wwAAAB5JREFUOI1jYBZgYFCAQAacwkDFQAUwKhu1Y9SOKQUAKZQBZwf4uQ4AAAAASUVORK5CYII=');
+        }
+
+        /* --- 3. Heroic Typography --- */
+        .text-outline {
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+            color: transparent;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .text-outline:hover {
+            color: white;
+            -webkit-text-stroke: 0px;
+        }
+
+        /* --- 4. Preloader --- */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: #333;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: #fff;
+        }
+
+        /* --- 5. New "Working" Project Hover Effect --- */
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0%;
+            background: #2563EB;
+            transition: height 0.4s ease;
+            z-index: 5;
+        }
+        .project-item:hover::before {
+            height: 100%;
+        }
+        .project-item:hover {
+            background: linear-gradient(90deg, rgba(37,99,235,0.05) 0%, transparent 100%);
+        }
+        
+        /* Status Indicator Pulse */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+        .project-item:hover .status-dot {
+            background-color: #00ff41; /* Green "Working" light */
+            box-shadow: 0 0 8px #00ff41;
+        }
+
+        /* --- 6. Marquee & Grid --- */
+        .marquee-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            gap: 2rem;
+        }
+        
+        .grid-bg {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        
+        /* Utility */
+        .hover-magnet { display: inline-block; }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    <div class="noise"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <h1 class="font-display text-6xl font-bold tracking-tighter text-white" id="loader-text">0%</h1>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
         </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 px-6 md:px-12 py-8 flex justify-between items-center mix-blend-difference">
+        <a href="#" class="font-display font-bold text-3xl tracking-tighter hover-magnet transition-transform hover:scale-110">MD.</a>
+        <div class="hidden md:flex space-x-12 font-body text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+            <a href="#about" class="hover:text-white transition-colors hover-magnet">About</a>
+            <a href="#work" class="hover:text-white transition-colors hover-magnet">Work</a>
+            <a href="#skills" class="hover:text-white transition-colors hover-magnet">Skills</a>
+            <a href="#resume" class="hover:text-white transition-colors hover-magnet">Resume</a>
+        </div>
+        <a href="#resume" class="font-body text-xs font-bold uppercase tracking-widest border border-white/30 px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all hover-magnet">
+            Get Resume
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center grid-bg overflow-hidden">
+        <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center">
+            
+            <div class="overflow-hidden mb-6">
+                <div class="hero-subtitle font-body text-xs md:text-sm text-accent font-bold uppercase tracking-[0.4em] translate-y-full px-6 py-2 border border-accent/20 rounded-full bg-accent/5 backdrop-blur-md">
+                    System Online
+                </div>
+            </div>
+            
+            <div class="relative leading-[0.85]">
+                <div class="overflow-hidden">
+                    <h1 class="hero-title font-display text-[15vw] font-bold text-white uppercase tracking-tighter translate-y-full mix-blend-normal">
+                        Manav
+                    </h1>
+                </div>
+                <div class="overflow-hidden -mt-[2vw] md:-mt-[2vw]">
+                    <h1 class="hero-title font-display text-[15vw] font-bold text-white uppercase tracking-tighter translate-y-full text-outline cursor-default">
+                        Darji
+                    </h1>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto overflow-hidden mt-12 md:mt-16 px-6">
+                <p class="hero-desc font-body text-gray-400 text-lg md:text-2xl leading-relaxed translate-y-full opacity-0">
+                    AI/ML Engineer & Full-Stack Developer.<br>
+                    <span class="text-white">Building intelligence from data.</span>
+                </p>
+            </div>
+            
+            <div class="mt-20 opacity-0 hero-btn absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <span class="font-body text-[10px] uppercase tracking-widest text-gray-500 mb-4 animate-pulse">Scroll</span>
+                <div class="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Dramatic Light/Glow -->
+        <div class="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-40 relative bg-dark z-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-12 gap-16 items-start">
+                <div class="md:col-span-3 sticky top-32">
+                    <span class="block w-16 h-[2px] bg-accent mb-6 reveal-line"></span>
+                    <h2 class="font-display text-4xl font-bold uppercase mb-4 reveal-text">Profile</h2>
+                </div>
+                <div class="md:col-span-9">
+                    <p class="font-display text-3xl md:text-5xl leading-tight text-gray-400 reveal-paragraph">
+                        I am an <span class="text-white">AI/ML Engineer</span> based in Mumbai. I combine deep technical research with robust software engineering to build scalable AI systems.
+                    </p>
+                    <p class="font-body text-xl text-gray-500 mt-12 max-w-3xl leading-relaxed reveal-paragraph-sm border-l-2 border-white/10 pl-8">
+                        My expertise spans <strong class="text-white">Generative AI (GANs)</strong>, <strong class="text-white">LLM Fine-tuning</strong>, and <strong class="text-white">Full-Stack Development</strong>. Whether it's training language models for regional dialects or predicting real estate markets, I build solutions that matter.
+                    </p>
+                    
+                    <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-16">
+                        <div class="stat-item opacity-0">
+                            <h3 class="font-display text-6xl font-bold text-white">8.5</h3>
+                            <p class="font-body text-xs uppercase tracking-widest text-accent mt-2">CGPA</p>
+                        </div>
+                        <div class="stat-item opacity-0">
+                            <h3 class="font-display text-6xl font-bold text-white">20+</h3>
+                            <p class="font-body text-xs uppercase tracking-widest text-accent mt-2">Certifications</p>
+                        </div>
+                        <div class="stat-item opacity-0">
+                            <h3 class="font-display text-6xl font-bold text-white">94%</h3>
+                            <p class="font-body text-xs uppercase tracking-widest text-accent mt-2">Model Acc.</p>
+                        </div>
+                         <div class="stat-item opacity-0">
+                            <h3 class="font-display text-6xl font-bold text-white">49</h3>
+                            <p class="font-body text-xs uppercase tracking-widest text-accent mt-2">Nat. Rank</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-40 relative bg-[#080808] border-t border-white/5">
+        <div class="container mx-auto px-6 md:px-12">
+            <span class="block w-16 h-[2px] bg-accent mb-6"></span>
+            <h2 class="font-display text-5xl font-bold uppercase mb-20">The Arsenal</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- AI/ML -->
+                <div class="p-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors rounded-2xl group hover-magnet cursor-pointer">
+                    <div class="text-5xl text-accent mb-8 group-hover:scale-110 transition-transform duration-300 inline-block">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-display text-3xl font-bold text-white mb-6">AI & Deep Learning</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">GenAI</span>
+                        <span class="skill-tag">LLM Training</span>
+                    </div>
+                </div>
+
+                <!-- Web & Mobile -->
+                <div class="p-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors rounded-2xl group hover-magnet cursor-pointer">
+                    <div class="text-5xl text-purple-500 mb-8 group-hover:scale-110 transition-transform duration-300 inline-block">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-display text-3xl font-bold text-white mb-6">Web & Mobile</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">HTML/CSS/JS</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Android (Kotlin)</span>
+                        <span class="skill-tag">Power BI</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="p-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors rounded-2xl group hover-magnet cursor-pointer">
+                    <div class="text-5xl text-green-500 mb-8 group-hover:scale-110 transition-transform duration-300 inline-block">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="font-display text-3xl font-bold text-white mb-6">Languages & Cloud</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">MLOps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Simplified "Cool" Animation) -->
+    <section id="work" class="py-40 relative border-t border-white/5 bg-[#050505]">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-end justify-between mb-32">
+                <div>
+                    <span class="block w-16 h-[2px] bg-accent mb-6"></span>
+                    <h2 class="font-display text-5xl md:text-7xl font-bold uppercase">Selected Works</h2>
+                </div>
+                <a href="https://github.com/Manavdarji2" target="_blank" class="hidden md:flex items-center gap-4 font-body text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors hover-magnet group">
+                    GitHub Profile <span class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors"><i class="fas fa-arrow-right -rotate-45"></i></span>
+                </a>
+            </div>
+
+            <!-- Projects List -->
+            <div class="flex flex-col w-full border-b border-white/10">
+                
+                <!-- Project 1 -->
+                <a href="https://github.com/Manavdarji2" target="_blank" class="project-item group border-t border-white/10 py-20 block no-underline relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between px-6">
+                        <div class="flex items-center gap-6">
+                            <span class="status-dot"></span> <!-- Status Indicator -->
+                            <div>
+                                <h3 class="font-display text-4xl md:text-6xl font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
+                                    GenAI Timetable
+                                </h3>
+                                <p class="md:hidden mt-4 text-gray-500 font-mono">Flask & LLM Automation</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex flex-col items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:-translate-x-4">
+                            <span class="font-body text-xs text-accent uppercase tracking-widest mb-2 font-bold">[ System Active ]</span>
+                            <span class="font-body text-base text-gray-400">Flask • LLM • MySQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://github.com/Manavdarji2" target="_blank" class="project-item group border-t border-white/10 py-20 block no-underline relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between px-6">
+                        <div class="flex items-center gap-6">
+                            <span class="status-dot"></span>
+                            <div>
+                                <h3 class="font-display text-4xl md:text-6xl font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
+                                    Mumbai Predictor
+                                </h3>
+                                <p class="md:hidden mt-4 text-gray-500 font-mono">Random Forest (92% Acc)</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex flex-col items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:-translate-x-4">
+                            <span class="font-body text-xs text-accent uppercase tracking-widest mb-2 font-bold">[ Data Optimized ]</span>
+                            <span class="font-body text-base text-gray-400">Scikit-learn • Pandas</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://github.com/Manavdarji2" target="_blank" class="project-item group border-t border-white/10 py-20 block no-underline relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between px-6">
+                        <div class="flex items-center gap-6">
+                            <span class="status-dot"></span>
+                            <div>
+                                <h3 class="font-display text-4xl md:text-6xl font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
+                                    CNN Classifier
+                                </h3>
+                                <p class="md:hidden mt-4 text-gray-500 font-mono">TensorFlow (94% Acc)</p>
+                            </div>
+                        </div>
+                         <div class="hidden md:flex flex-col items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:-translate-x-4">
+                            <span class="font-body text-xs text-accent uppercase tracking-widest mb-2 font-bold">[ Vision Online ]</span>
+                            <span class="font-body text-base text-gray-400">TensorFlow • Keras</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://github.com/Manavdarji2" target="_blank" class="project-item group border-t border-white/10 py-20 block no-underline relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between px-6">
+                        <div class="flex items-center gap-6">
+                            <span class="status-dot"></span>
+                            <div>
+                                <h3 class="font-display text-4xl md:text-6xl font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
+                                    Sentiment Analysis
+                                </h3>
+                                <p class="md:hidden mt-4 text-gray-500 font-mono">NLP (87% Acc)</p>
+                            </div>
+                        </div>
+                         <div class="hidden md:flex flex-col items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:-translate-x-4">
+                            <span class="font-body text-xs text-accent uppercase tracking-widest mb-2 font-bold">[ Processing NLP ]</span>
+                            <span class="font-body text-base text-gray-400">NLP • KNN</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section (New) -->
+    <section id="resume" class="py-32 relative bg-dark border-t border-white/5">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="bg-gradient-to-r from-gray-900 to-black border border-white/10 rounded-3xl p-12 md:p-20 relative overflow-hidden group">
+                <!-- Background Accent -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none group-hover:bg-accent/10 transition-colors duration-500"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="text-center md:text-left">
+                        <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">Classified Dossier</h2>
+                        <p class="font-body text-gray-400 text-lg max-w-xl">
+                            Access the full detailed report on my technical capabilities, educational background, and project history.
+                        </p>
+                    </div>
+                    
+                    <a href="Manav_Darji_Resume.pdf" download="Manav_Darji_Resume.pdf" class="relative overflow-hidden bg-white text-black font-display font-bold text-xl px-12 py-6 rounded-full group hover-magnet inline-block">
+                        <span class="relative z-10 group-hover:text-white transition-colors duration-300">Download Resume <i class="fas fa-download ml-3"></i></span>
+                        <div class="absolute inset-0 bg-accent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Journey -->
+    <section id="experience" class="py-40 relative bg-[#0a0a0a]">
+        <div class="container mx-auto px-6 md:px-12 max-w-5xl">
+             <span class="block w-16 h-[2px] bg-accent mb-6 mx-auto"></span>
+            <h2 class="font-display text-5xl font-bold uppercase mb-24 text-center">The Journey</h2>
+
+            <div class="space-y-20">
+                
+                <!-- Tata Internship -->
+                <div class="flex flex-col md:flex-row gap-8 md:gap-20 group">
+                    <div class="md:w-1/4 text-right">
+                        <span class="font-display text-4xl font-bold text-white block">Tata</span>
+                        <span class="font-body text-sm text-accent uppercase tracking-widest font-bold">Internship</span>
+                    </div>
+                    <div class="md:w-3/4 border-l border-white/10 pl-12 pb-4 relative">
+                        <span class="absolute -left-[6px] top-3 w-[11px] h-[11px] bg-accent rounded-full shadow-[0_0_15px_rgba(37,99,235,0.8)]"></span>
+                        <h3 class="font-display text-3xl font-bold text-white">Data Visualization Intern</h3>
+                        <p class="font-body text-gray-400 text-lg leading-relaxed mt-4 max-w-2xl">
+                            Created interactive dashboards using Power BI. Focused on data storytelling, visualization best practices, and analyzing large datasets to derive actionable insights.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Google / AICTC -->
+                <div class="flex flex-col md:flex-row gap-8 md:gap-20 group">
+                    <div class="md:w-1/4 text-right">
+                        <span class="font-display text-4xl font-bold text-white block">Google</span>
+                        <span class="font-body text-sm text-gray-500 uppercase tracking-widest font-bold">AICTC</span>
+                    </div>
+                    <div class="md:w-3/4 border-l border-white/10 pl-12 pb-4 relative">
+                        <span class="absolute -left-[6px] top-3 w-[11px] h-[11px] bg-gray-700 rounded-full group-hover:bg-white transition-colors"></span>
+                        <h3 class="font-display text-3xl font-bold text-white">AI/ML Developer</h3>
+                        <p class="font-body text-gray-400 text-lg leading-relaxed mt-4 max-w-2xl">
+                            Deep dive into Machine Learning with Google and AICTC. Worked on Deep Learning implementations using TensorFlow and TensorFlow-Lite for mobile deployment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Kaggle Contributor -->
+                <div class="flex flex-col md:flex-row gap-8 md:gap-20 group">
+                    <div class="md:w-1/4 text-right">
+                        <span class="font-display text-4xl font-bold text-white block">Kaggle</span>
+                        <span class="font-body text-sm text-gray-500 uppercase tracking-widest font-bold">Oct - Jan</span>
+                    </div>
+                    <div class="md:w-3/4 border-l border-white/10 pl-12 pb-4 relative">
+                        <span class="absolute -left-[6px] top-3 w-[11px] h-[11px] bg-gray-700 rounded-full group-hover:bg-white transition-colors"></span>
+                        <h3 class="font-display text-3xl font-bold text-white">Open Source Contributor</h3>
+                        <p class="font-body text-gray-400 text-lg leading-relaxed mt-4 max-w-2xl">
+                            Led a team to train <span class="text-white font-bold">Google's Gemma LLM</span> in Marathi. Optimized hyperparameters achieving 45% instance accuracy.
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- Freelance/Self -->
+                 <div class="flex flex-col md:flex-row gap-8 md:gap-20 group">
+                    <div class="md:w-1/4 text-right">
+                        <span class="font-display text-4xl font-bold text-white block">Self</span>
+                        <span class="font-body text-sm text-gray-500 uppercase tracking-widest font-bold">2024</span>
+                    </div>
+                    <div class="md:w-3/4 border-l border-white/10 pl-12 pb-4 relative">
+                        <span class="absolute -left-[6px] top-3 w-[11px] h-[11px] bg-gray-700 rounded-full group-hover:bg-white transition-colors"></span>
+                        <h3 class="font-display text-3xl font-bold text-white">GenAI Developer</h3>
+                        <p class="font-body text-gray-400 text-lg leading-relaxed mt-4 max-w-2xl">
+                            Architected a full-stack timetable management system with AI capabilities using Flask and LLMs.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="py-40 bg-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 mb-20">
+            <span class="block w-16 h-[2px] bg-accent mb-6"></span>
+            <h2 class="font-display text-5xl font-bold uppercase">Hall of Certifications</h2>
+        </div>
+
+        <!-- Marquee Wrapper -->
+        <div class="marquee-wrapper">
+            <div class="marquee-content" id="marquee-content">
+                <!-- Card 1 -->
+                <div class="w-[400px] flex-shrink-0 bg-white/5 border border-white/10 p-10 rounded-2xl hover:border-accent/50 transition-colors group cursor-pointer hover-magnet">
+                    <i class="fab fa-aws text-6xl text-white mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">AWS ML Scholar</h3>
+                    <p class="font-body text-gray-400">7x Certifications in Model Training & Deployment</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="w-[400px] flex-shrink-0 bg-white/5 border border-white/10 p-10 rounded-2xl hover:border-accent/50 transition-colors group cursor-pointer hover-magnet">
+                    <i class="fas fa-brain text-6xl text-orange-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">TensorFlow</h3>
+                    <p class="font-body text-gray-400">GeeksforGeeks DL Certification</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="w-[400px] flex-shrink-0 bg-white/5 border border-white/10 p-10 rounded-2xl hover:border-accent/50 transition-colors group cursor-pointer hover-magnet">
+                    <i class="fas fa-camera text-6xl text-green-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">OpenCV</h3>
+                    <p class="font-body text-gray-400">Great Learning Computer Vision</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="w-[400px] flex-shrink-0 bg-white/5 border border-white/10 p-10 rounded-2xl hover:border-accent/50 transition-colors group cursor-pointer hover-magnet">
+                    <i class="fas fa-chart-bar text-6xl text-yellow-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">Data Analytics</h3>
+                    <p class="font-body text-gray-400">TCS Forge Virtual Internship</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="w-[400px] flex-shrink-0 bg-white/5 border border-white/10 p-10 rounded-2xl hover:border-accent/50 transition-colors group cursor-pointer hover-magnet">
+                    <i class="fab fa-google text-6xl text-red-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-display text-3xl font-bold text-white mb-2">Google AI/ML</h3>
+                    <p class="font-body text-gray-400">Edu-Skill AI/ML Fundamentals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-40 bg-dark relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center z-10 relative">
+            <h2 class="font-display text-6xl md:text-9xl font-bold text-white mb-10 tracking-tighter">
+                Let's Build the <br> <span class="text-outline">Future.</span>
+            </h2>
+            <p class="font-body text-gray-400 text-xl mb-16 max-w-2xl mx-auto">
+                Ready to deploy next-gen AI solutions? <br>
+                Open for full-time roles & collaborations.
+            </p>
+            
+            <a href="mailto:darjimanav3@gmail.com" class="inline-block hover-magnet group">
+                <div class="bg-white text-black font-display font-bold text-2xl px-16 py-6 rounded-full group-hover:bg-accent group-hover:text-white transition-all duration-300 transform group-hover:scale-105">
+                    darjimanav3@gmail.com
+                </div>
+            </a>
+
+            <!-- Social Links Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-24">
+                <a href="https://linkedin.com/in/manav-darji18" target="_blank" class="flex flex-col items-center group hover-magnet">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 group-hover:bg-[#0077b5] group-hover:border-transparent transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-2xl text-white"></i>
+                    </div>
+                    <span class="font-body text-sm font-bold uppercase tracking-widest text-gray-500 group-hover:text-white">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/Manavdarji2" target="_blank" class="flex flex-col items-center group hover-magnet">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 group-hover:bg-white group-hover:border-transparent transition-all duration-300">
+                        <i class="fab fa-github text-2xl text-white group-hover:text-black"></i>
+                    </div>
+                    <span class="font-body text-sm font-bold uppercase tracking-widest text-gray-500 group-hover:text-white">GitHub</span>
+                </a>
+
+                <a href="https://www.kaggle.com/manavdarji18" target="_blank" class="flex flex-col items-center group hover-magnet">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 group-hover:bg-[#20BEFF] group-hover:border-transparent transition-all duration-300">
+                        <i class="fab fa-kaggle text-2xl text-white"></i>
+                    </div>
+                    <span class="font-body text-sm font-bold uppercase tracking-widest text-gray-500 group-hover:text-white">Kaggle</span>
+                </a>
+
+                <a href="https://developers.google.com/profile/u/Manav-Viral-Darji" target="_blank" class="flex flex-col items-center group hover-magnet">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 group-hover:bg-red-500 group-hover:border-transparent transition-all duration-300">
+                        <i class="fab fa-google text-2xl text-white"></i>
+                    </div>
+                    <span class="font-body text-sm font-bold uppercase tracking-widest text-gray-500 group-hover:text-white">Google Dev</span>
+                </a>
+            </div>
+
+            <p class="mt-32 text-gray-700 font-body text-xs uppercase tracking-widest">© 2025 Manav Darji. All Rights Reserved.</p>
+        </div>
+        
+        <!-- Background Gradient -->
+        <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-accent/5 to-transparent pointer-events-none"></div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- 1. Custom Cursor ---
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        
+        // Auto-add magnet class
+        document.querySelectorAll('a, button, .project-item').forEach(el => el.classList.add('hover-magnet'));
+        const magneticElements = document.querySelectorAll('.hover-magnet');
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' });
+            gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.05, ease: 'power2.out' });
+        });
+
+        magneticElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('hovering');
+                // Magnetic pull effect
+                gsap.to(el, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('hovering');
+                gsap.to(el, { scale: 1, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+
+        // --- 2. Marquee Infinite Scroll (Robust) ---
+        const marqueeContent = document.getElementById('marquee-content');
+        const clone = marqueeContent.cloneNode(true);
+        marqueeContent.parentElement.appendChild(clone);
+
+        gsap.to(".marquee-content", {
+            xPercent: -100,
+            repeat: -1,
+            duration: 30, // Slower for grandeur
+            ease: "linear"
+        }).totalProgress(0.5);
+
+
+        // --- 3. Preloader & Name Animation (Fixed) ---
+        const tl = gsap.timeline();
+        let progress = 0;
+        const loaderText = document.getElementById('loader-text');
+        const loaderProgress = document.querySelector('.loader-progress');
+        
+        const interval = setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 5;
+            if (progress > 100) progress = 100;
+            loaderText.innerText = progress + '%';
+            loaderProgress.style.width = progress + '%';
+
+            if (progress === 100) {
+                clearInterval(interval);
+                startIntro();
+            }
+        }, 50);
+
+        function startIntro() {
+            tl.to('.preloader', {
+                y: '-100%',
+                duration: 1.2,
+                ease: 'power4.inOut',
+                delay: 0.2
+            })
+            .to('.hero-subtitle', {
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            }, "-=0.5")
+            .to('.hero-title', {
+                y: 0,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: 'power3.out'
+            }, "-=0.8")
+            .to('.hero-desc', {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power3.out'
+            }, "-=0.8")
+            .to('.hero-btn', {
+                opacity: 1,
+                duration: 1
+            }, "-=0.5");
+        }
+
+
+        // --- 4. Scroll Animations ---
+        gsap.utils.toArray('.reveal-paragraph').forEach(text => {
+            gsap.from(text, {
+                scrollTrigger: { trigger: text, start: "top 85%" },
+                y: 80, opacity: 0, duration: 1.5, ease: 'power3.out'
+            });
+        });
+
+        gsap.to('.stat-item', {
+            scrollTrigger: { trigger: '#about', start: "top 60%" },
+            y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out'
+        });
+        
+        // Skill tags style
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .skill-tag {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 0.5rem 1rem;
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 9999px;
+                color: #888;
+                transition: all 0.3s ease;
+                background: rgba(255,255,255,0.02);
+            }
+            .group:hover .skill-tag {
+                border-color: #2563EB;
+                color: white;
+                background: rgba(37,99,235,0.1);
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
 </body>
 </html>
