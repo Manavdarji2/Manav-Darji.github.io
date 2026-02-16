@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://manavdarji2.github.io/sitemap.xml
