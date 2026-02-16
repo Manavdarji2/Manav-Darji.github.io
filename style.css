@@ -1,0 +1,207 @@
+/* --- Global Variables --- */
+:root {
+    --cursor-size: 20px;
+}
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+body {
+    background-color: #050505;
+    color: #E6E6E6;
+    cursor: none;
+    overflow-x: hidden;
+}
+
+/* --- 1. Custom Cursor --- */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    mix-blend-mode: difference;
+}
+
+#cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+}
+
+body.hovering #cursor {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+    backdrop-filter: blur(2px);
+}
+
+/* --- 2. Cinematic Grain --- */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9000;
+    opacity: 0.05;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTkAAAAAAAAAAABMTExERERmZmZnMy35AAAACHRSTlMAMwAqzMzMzMwnXT0AAAAJcEhZcwAAOxMAADsTRqt1wwAAAB5JREFUOI1jYBZgYFCAQAacwkDFQAUwKhu1Y9SOKQUAKZQBZwf4uQ4AAAAASUVORK5CYII=');
+}
+
+/* --- 3. Heroic Typography --- */
+.text-outline {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    color: transparent;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.text-outline:hover {
+    color: white;
+    -webkit-text-stroke: 0px;
+}
+
+/* --- 4. Preloader --- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: #333;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #fff;
+}
+
+/* --- 5. Project Item Hover Effect --- */
+.project-item {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    transition: all 0.4s ease;
+}
+.project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0%;
+    background: #2563EB;
+    transition: height 0.4s ease;
+    z-index: 5;
+}
+.project-item:hover::before {
+    height: 100%;
+}
+.project-item:hover {
+    background: linear-gradient(90deg, rgba(37,99,235,0.05) 0%, transparent 100%);
+}
+
+/* Status Indicator Pulse */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+.project-item:hover .status-dot {
+    background-color: #00ff41; /* Green "Working" light */
+    box-shadow: 0 0 8px #00ff41;
+}
+
+/* --- 6. Marquee & Grid --- */
+.marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    gap: 2rem;
+}
+
+.grid-bg {
+    background-size: 60px 60px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Utility */
+.hover-magnet { display: inline-block; }
+
+/* Skill Tags */
+.skill-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9999px;
+    color: #888;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.02);
+}
+.group:hover .skill-tag {
+    border-color: #2563EB;
+    color: white;
+    background: rgba(37,99,235,0.1);
+}
