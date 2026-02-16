@@ -24,10 +24,12 @@ html.lenis {
 }
 
 body {
-    background-color: #050505;
+    background-color: #030303;
+    /* Deeper Black */
     color: #E6E6E6;
     cursor: none;
     overflow-x: hidden;
+    font-feature-settings: "ss01", "ss02", "salt";
 }
 
 /* --- 1. Custom Cursor --- */
@@ -37,13 +39,16 @@ body {
     left: 0;
     width: var(--cursor-size);
     height: var(--cursor-size);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(37, 99, 235, 0.5);
+    /* Accent color */
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, background-color 0.3s;
-    mix-blend-mode: difference;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+        height 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+        background-color 0.3s;
+    mix-blend-mode: exclusion;
 }
 
 #cursor-dot {
@@ -52,17 +57,18 @@ body {
     left: 0;
     width: 4px;
     height: 4px;
-    background-color: white;
+    background-color: #2563EB;
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #2563EB;
 }
 
 body.hovering #cursor {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.1);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(37, 99, 235, 0.1);
     border-color: transparent;
     backdrop-filter: blur(2px);
 }
@@ -76,19 +82,29 @@ body.hovering #cursor {
     height: 100%;
     pointer-events: none;
     z-index: 9000;
-    opacity: 0.05;
+    opacity: 0.03;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTkAAAAAAAAAAABMTExERERmZmZnMy35AAAACHRSTlMAMwAqzMzMzMwnXT0AAAAJcEhZcwAAOxMAADsTRqt1wwAAAB5JREFUOI1jYBZgYFCAQAacwkDFQAUwKhu1Y9SOKQUAKZQBZwf4uQ4AAAAASUVORK5CYII=');
 }
 
-/* --- 3. Heroic Typography --- */
+/* --- 3. Heroic Typography & Effects --- */
 .text-outline {
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
     color: transparent;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
 .text-outline:hover {
     color: white;
     -webkit-text-stroke: 0px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Spotlight Effect */
+#spotlight {
+    background: radial-gradient(circle 800px at var(--x, 50%) var(--y, 50%),
+            rgba(37, 99, 235, 0.08),
+            transparent 40%);
+    z-index: 1;
 }
 
 /* --- 4. Preloader --- */
@@ -109,10 +125,11 @@ body.hovering #cursor {
 .loader-bar {
     width: 200px;
     height: 2px;
-    background: #333;
+    background: #111;
     margin-top: 20px;
     position: relative;
     overflow: hidden;
+    border-radius: 4px;
 }
 
 .loader-progress {
@@ -121,47 +138,59 @@ body.hovering #cursor {
     left: 0;
     height: 100%;
     width: 0%;
-    background: #fff;
+    background: #2563EB;
+    box-shadow: 0 0 10px #2563EB;
 }
 
-/* --- 5. Project Item Hover Effect --- */
+/* --- 5. Project Item (Glassmorphism & Tilt) --- */
 .project-item {
     position: relative;
     overflow: hidden;
-    background: transparent;
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    border-radius: 12px;
 }
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.1);
+}
+
 .project-item::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 2px;
     height: 0%;
     background: #2563EB;
-    transition: height 0.4s ease;
+    transition: height 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: 5;
+    box-shadow: 0 0 15px #2563EB;
 }
+
 .project-item:hover::before {
     height: 100%;
-}
-.project-item:hover {
-    background: linear-gradient(90deg, rgba(37,99,235,0.05) 0%, transparent 100%);
 }
 
 /* Status Indicator Pulse */
 .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #333;
+    width: 6px;
+    height: 6px;
+    background-color: #444;
     border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
     transition: all 0.3s ease;
 }
+
 .project-item:hover .status-dot {
-    background-color: #00ff41; /* Green "Working" light */
-    box-shadow: 0 0 8px #00ff41;
+    background-color: #00ff41;
+    box-shadow: 0 0 10px #00ff41;
 }
 
 /* --- 6. Marquee & Grid --- */
@@ -170,38 +199,48 @@ body.hovering #cursor {
     overflow: hidden;
     width: 100%;
     display: flex;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
 }
+
 .marquee-content {
     display: flex;
     flex-shrink: 0;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .grid-bg {
-    background-size: 60px 60px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    /* Removed for clearer hero, can be re-added if needed */
 }
 
 /* Utility */
-.hover-magnet { display: inline-block; }
+.hover-magnet {
+    display: inline-block;
+}
 
-/* Skill Tags */
+/* Skill Tags - Glass */
 .skill-tag {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 0.05em;
     padding: 0.5rem 1rem;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 9999px;
     color: #888;
     transition: all 0.3s ease;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(5px);
 }
+
 .group:hover .skill-tag {
-    border-color: #2563EB;
+    border-color: rgba(37, 99, 235, 0.4);
     color: white;
-    background: rgba(37,99,235,0.1);
+    background: rgba(37, 99, 235, 0.08);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.1);
+}
+
+/* Canvas */
+canvas {
+    display: block;
 }
