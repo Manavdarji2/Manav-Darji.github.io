@@ -1,0 +1,71 @@
+Manav Viral Darji
+Artificial Intelligence & Machine Learning Student
+/envel⌢pedarjimanav3@gmail.com /githubgithub.com/Manavdarji2 /linkedinlinkedin.com/in/manav-darji18 /kagglemanavdarji18
+Summary
+Aspiring AI/ML Engineer skilled in building and optimizing Deep Learning, GAN, and LLM-based systems using
+PyTorch, TensorFlow, and Scikit-learn. Strong foundation in Transformer/BERT architectures, RAG pipelines, and
+TorchVision for GAN-driven image synthesis. Experienced in structured experimentation, model fine-tuning, and
+applying AI research to real-world applications.
+Skills
+Programming:Python, C, C++, Java, JavaScript, SQL
+Frameworks & Libraries:PyTorch, TensorFlow, Scikit-learn, OpenCV, Flask, TorchVision (Learning)
+Databases:MongoDB, MySQL, Oracle
+AI/ML Focus:GANs (Pix2Pix, SPADE), LLMs, BERT, Transformers, RAG, Deep Learning, NLP, Machine
+Learning, Generative AI (GenAI), Agentic AI
+Tools:NumPy, Pandas, Matplotlib, Power BI, AWS S3, LangChain, Git, GitHub
+Additional Skills:Data Analytics, Data Visualization, Machine Learning Model Development, Predictive
+Modeling, Deep Learning, Model Evaluation & Optimization, Feature Engineering, Data Preprocessing,
+Exploratory Data Analysis (EDA), Prompt Engineering, RAG Pipelines, GAN Model Training, API Integration,
+Version Control (Git/GitHub)
+Experience
+Open-Source Contributor — Google Gemma LLM (Marathi)Oct 2024 – Jan 2025
+Kaggle (Remote)
+–Contributed to training Google’s Gemma LLM in Marathi; improved model accuracy by 15% through optimized data
+preprocessing and tokenizer debugging.
+–Collaborated with open-source contributors to streamline multilingual dataset workflows.
+–Led a 5-member team and managed task distribution for efficient project progress.
+AI Developer — GenAI Timetable Management System2024
+Self-Project
+–Developed a Generative AI-based timetable management system using Flask, HTML/CSS, and LLM-powered reasoning
+to automate class and teacher scheduling.
+–Implemented modules forteacher, class, classroom, subject, and timetable management.
+–Currently extending the system with:
+– (1)Timetable export to CSV in a standardized format,(2)Dynamic rescheduling for teacher absence,(3)AI-generated
+substitute teacher suggestions.
+–Integrated LLM APIs and applied prompt-engineering logic for adaptive and context-aware timetable generation.
+(Private repository)
+Researcher — UX-GenAI (Ongoing) 2025
+Independent Research
+–Researching the integration of GAN and RAG architectures for AI-driven UX design generation using Pix2Pix, SPADE,
+and ChromaDB.
+–Evaluating generator–discriminator performance to improve structured UX output synthesis.
+Projects
+Mumbai Real Estate Price Prediction—Random Forest, Scikit-learn2024
+–Achieved 92% accuracy on 3K+ listings using feature scaling, encoding, and cross-validation.
+CNN Image Classifier—TensorFlow, Keras2024
+–Designed a CNN achieving 94% accuracy on 2K+ images; incorporated ReLU activations and dropout regularization.Sentiment Analysis on Twitter Data—NLP, K-Nearest Neighbors2024
+–Developed a KNN-based sentiment classifier trained on 50K tweets, achieving 87% accuracy.
+Personal AI Assistant—API Integration 2024
+–Built a voice-enabled AI assistant for real-time task automation and intelligent query handling using multiple APIs.
+Additional AI/ML Work—PyTorch, LLMs, GANs
+–More advanced AI/ML and Generative AI projects available on GitHub.
+Certifications & Achievements
+•AWS ML Scholar:Completed 7 AWS Machine Learning certifications covering data processing, model training,
+deployment, and ML fundamentals.
+•Certifications:TensorFlow (GeeksforGeeks), OpenCV (Great Learning), Data Analytics with Power BI Virtual
+internship (TCS Forge), FreeCodeCamp Machine Learning, HackerRank (Python, C, C++, SQL), Google Edu-Skill —
+AI/ML Fundamentals.
+•Hackathons & Competitions:Team Lead at ISRO Hackathon (Lunar Project); Kaggle LLM Competition (Trained
+Marathi LLM); National Coding League — Ranked 49 out of 20,000+ participants.
+Education
+B.Sc. (Hons) in Artificial Intelligence & Machine LearningExpected Graduation: 2027
+MKES College (Affiliated to University of Mumbai)
+–Average CGPA:8.5
+–Relevant Coursework: Deep Learning, NLP, Probability & Statistics, Data Structures, Computer Vision.
+Open Source & Extracurricular
+•Active contributor on Kaggle, FreeCodeCamp, and Google Developer communities.
+•Published datasets, debugged AI models, and improved NLP accuracy in collaborative open-source environments.
+•Experimenting with GANs (SPADE, Pix2Pix) and Transformer-based LLMs to build research-oriented prototypes.
+Languages
+Human Languages:English, Hindi, Gujarati
+Programming Languages:Python, JavaScript, C/C++, Java, SQL, Kotlin

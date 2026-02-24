@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+.font-serif {
+  font-family: 'Lora', serif;
+}
+
+.font-sans {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (pointer: fine) {
+
+  body,
+  a,
+  button {
+    cursor: none !important;
+  }
+}
+
+/* Ambient Latent Space Background */
+.latent-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 50%, rgba(43, 76, 62, 0.05) 0%, rgba(247, 247, 244, 0) 50%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+  animation: latentShift 20s infinite alternate ease-in-out;
+}
+
+@keyframes latentShift {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+
+  100% {
+    transform: scale(1.5) translate(50px, 20px);
+  }
+}
+
+.card-content {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+
+.group:hover .card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Typing dot animation for chat */
+.typing-dot {
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

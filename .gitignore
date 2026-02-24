@@ -1,0 +1,42 @@
+# Write all that need to be ignore
+```gitignore
+# Dependencies
+node_modules/
+jspm_packages/
+venv/
+.venv/
+env/
+
+# Build outputs
+dist/
+build/
+out/
+bin/
+obj/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+```

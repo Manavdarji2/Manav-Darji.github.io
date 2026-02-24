@@ -1,0 +1,2 @@
+My Personal Portfolio
+Welcome to my personal portfolio! This space highlights my major projects, technical expertise, and a detailed overview of my work in web development, machine learning, and design explorations.

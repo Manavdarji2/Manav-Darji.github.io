@@ -32,6 +32,43 @@ body {
     font-feature-settings: "ss01", "ss02", "salt";
 }
 
+/* --- Scroll Progress Bar --- */
+.progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 10002;
+    pointer-events: none;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2563EB, #60A5FA);
+    width: 0%;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* --- Text Reveal Masking --- */
+.reveal-text-mask {
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+}
+
+.reveal-text-line {
+    display: block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.is-inview .reveal-text-line {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 /* --- 1. Custom Cursor --- */
 #cursor {
     position: fixed;
