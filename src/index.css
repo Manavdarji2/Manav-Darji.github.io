@@ -46,15 +46,25 @@
   }
 }
 
-.card-content {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.4s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .card-content {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+  }
+
+  .group:hover .card-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.group:hover .card-content {
-  transform: translateY(0);
-  opacity: 1;
+@media (hover: none) {
+  .card-content {
+    transform: translateY(0);
+    opacity: 1;
+    transition: none;
+  }
 }
 
 /* Typing dot animation for chat */

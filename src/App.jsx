@@ -406,10 +406,10 @@ const App = () => {
       <div className="latent-bg"></div>
 
       {/* RAG RESUME ASSISTANT INTERFACE */}
-      <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end">
+      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end">
         {/* Chat Window */}
         {chatOpen && (
-          <div className="mb-4 w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right">
+          <div className="mb-4 w-[calc(100vw-2rem)] sm:w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right">
             <div className="bg-[#1C1E1A] text-white p-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Bot size={18} className="text-[#2B4C3E]" />
@@ -511,18 +511,18 @@ const App = () => {
           </OpticalReveal>
 
           <div>
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-[7.5rem] leading-[1.05] tracking-tight mb-8">
+            <h1 className="font-serif text-[12vw] sm:text-6xl md:text-8xl lg:text-[7.5rem] leading-[1.1] md:leading-[1.05] tracking-tight mb-8">
               <div className="block"><DecryptText text="Engineering intelligence" delay={0.6} /></div>
               <div className="block">
-                <DecryptText text="through" delay={0.7} />
-                <span className="italic ml-[0.3em] text-[#2B4C3E]"><DecryptText text="generative models" delay={0.8} /></span>
+                <DecryptText text="through" delay={0.7} />{' '}
+                <span className="italic text-[#2B4C3E]"><DecryptText text="generative models" delay={0.8} /></span>
               </div>
               <div className="block"><DecryptText text="& deep learning." delay={0.9} /></div>
             </h1>
           </div>
 
           <OpticalReveal delay={1.2} className="max-w-2xl mb-12">
-            <p className="text-lg md:text-xl text-[#646762] leading-relaxed">
+            <p className="text-base md:text-xl text-[#646762] leading-relaxed">
               Skilled in designing, training, and optimizing ML/DL models using TensorFlow and PyTorch. Experienced with CNN, LSTM, GANs, and RAG pipelines to build end-to-end, production-ready AI solutions.
             </p>
           </OpticalReveal>
@@ -610,7 +610,7 @@ const App = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <OpticalReveal key={i} delay={i * 0.1}>
-              <div className="p-8 rounded-[2rem] bg-[#F7F7F4] border border-[#EBEBE6] h-[380px] flex flex-col group relative overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="p-8 rounded-[2rem] bg-[#F7F7F4] border border-[#EBEBE6] min-h-[420px] md:min-h-[380px] h-auto flex flex-col group relative overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 pb-[180px] md:pb-[140px]">
                 <span className="text-xs font-semibold uppercase tracking-widest mb-4 block text-[#2B4C3E]">
                   {project.category}
                 </span>
@@ -662,11 +662,11 @@ const App = () => {
       </section>
 
       {/* 6. FOOTER */}
-      <footer className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-8 relative z-10 bg-transparent">
+      <footer className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-32 md:pb-24 relative z-10 bg-transparent">
         <OpticalReveal delay={0}>
-          <div className="p-16 md:p-24 rounded-[3rem] bg-[#1C1E1A] text-white flex flex-col items-center text-center mb-20 relative overflow-hidden group border border-[#333]">
-            <h2 className="font-serif text-5xl md:text-6xl mb-8 relative z-10">Initiate Collaboration</h2>
-            <p className="text-[#A3A6A0] text-lg max-w-2xl mb-12 relative z-10 leading-relaxed">
+          <div className="p-8 py-16 md:p-24 rounded-[3rem] bg-[#1C1E1A] text-white flex flex-col items-center text-center mb-20 relative overflow-hidden group border border-[#333]">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl mb-8 relative z-10">Initiate Collaboration</h2>
+            <p className="text-[#A3A6A0] text-sm md:text-lg max-w-2xl mb-12 relative z-10 leading-relaxed">
               Passionate about building end-to-end AI solutions. Available for ML/AI Research Internships and engineering roles.
             </p>
             <MagneticButton href="mailto:darjimanav3@gmail.com">
