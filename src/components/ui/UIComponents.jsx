@@ -20,7 +20,7 @@ export const DecryptText = ({ text, delay = 0, className = "" }) => {
                 );
 
                 if (iteration >= text.length) clearInterval(interval);
-                iteration += 0.8;
+                iteration += Math.max(1, text.length / 30);
             }, 30);
         };
 

@@ -109,6 +109,14 @@ const App = () => {
   const [apiKey, setApiKey] = useState("");
   const [apiLimitReached, setApiLimitReached] = useState(false);
 
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    if (chatOpen && chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatHistory, isTyping, chatOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight;
@@ -261,64 +269,63 @@ const App = () => {
       {/* RAG RESUME ASSISTANT INTERFACE */}
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end">
         {/* Chat Window */}
-        {chatOpen && (
-          <div className="mb-4 w-[calc(100vw-2rem)] sm:w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right">
-            <div className="bg-[#1C1E1A] text-white p-4 flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Bot size={18} className="text-[#2B4C3E]" />
-                <span className="font-mono text-xs font-bold uppercase tracking-widest">RAG Agent Pipeline</span>
-              </div>
-              <button onClick={() => setChatOpen(false)} className="hover:text-[#2B4C3E] transition-colors"><X size={16} /></button>
+        <div className={`mb-4 w-[calc(100vw-2rem)] sm:w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right ${chatOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}>
+          <div className="bg-[#1C1E1A] text-white p-4 flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <Bot size={18} className="text-[#2B4C3E]" />
+              <span className="font-mono text-xs font-bold uppercase tracking-widest">RAG Agent Pipeline</span>
             </div>
-
-            <div className="h-[300px] overflow-y-auto p-4 flex flex-col gap-4 bg-[#F7F7F4] text-sm">
-              {chatHistory.map((msg, idx) => (
-                <div key={idx} className={`flex ${msg.role === 'ai' ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-2xl leading-relaxed ${msg.role === 'ai' ? 'bg-white border border-[#EBEBE6] text-[#1C1E1A] rounded-tl-sm' : 'bg-[#2B4C3E] text-white rounded-tr-sm'}`}>
-                    {msg.animated ? <DecryptText text={msg.text} delay={0} /> : msg.text}
-                  </div>
-                </div>
-              ))}
-              {isTyping && (
-                <div className="flex justify-start">
-                  <div className="bg-white border border-[#EBEBE6] p-3 rounded-2xl rounded-tl-sm flex gap-1 items-center h-[40px]">
-                    <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
-                    <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
-                    <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="p-3 bg-white border-t border-[#EBEBE6] flex flex-col gap-2">
-              <span className="text-[10px] uppercase font-bold text-[#646762] tracking-widest pl-1">Suggested Queries:</span>
-              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                <button onClick={() => handleSendMessage("Why should we hire Manav?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Why hire?</button>
-                <button onClick={() => handleSendMessage("What is his LLM experience?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">LLM Experience</button>
-                <button onClick={() => handleSendMessage("Has he led any teams?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Leadership</button>
-                <button onClick={() => handleSendMessage("What is his tech stack?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Tech Stack</button>
-              </div>
-
-              <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(userInput); }} className="relative mt-1">
-                <input
-                  type="text"
-                  value={userInput}
-                  onChange={(e) => setUserInput(e.target.value)}
-                  placeholder="Ask something else..."
-                  className="w-full bg-[#F7F7F4] border border-[#EBEBE6] rounded-full py-2 pl-4 pr-10 text-xs focus:outline-none focus:border-[#2B4C3E]/40"
-                  disabled={isTyping}
-                />
-                <button
-                  type="submit"
-                  disabled={isTyping || !userInput.trim()}
-                  className="absolute right-1 top-1 bottom-1 w-8 flex items-center justify-center bg-[#2B4C3E] text-white rounded-full hover:bg-[#1C1E1A] disabled:opacity-50 transition-colors"
-                >
-                  <ArrowRight size={12} />
-                </button>
-              </form>
-            </div>
+            <button onClick={() => setChatOpen(false)} className="hover:text-[#2B4C3E] transition-colors"><X size={16} /></button>
           </div>
-        )}
+
+          <div className="h-[300px] overflow-y-auto p-4 flex flex-col gap-4 bg-[#F7F7F4] text-sm">
+            {chatHistory.map((msg, idx) => (
+              <div key={idx} className={`flex ${msg.role === 'ai' ? 'justify-start' : 'justify-end'}`}>
+                <div className={`max-w-[85%] p-3 rounded-2xl leading-relaxed ${msg.role === 'ai' ? 'bg-white border border-[#EBEBE6] text-[#1C1E1A] rounded-tl-sm' : 'bg-[#2B4C3E] text-white rounded-tr-sm'}`}>
+                  {msg.animated ? <DecryptText text={msg.text} delay={0} /> : msg.text}
+                </div>
+              </div>
+            ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-white border border-[#EBEBE6] p-3 rounded-2xl rounded-tl-sm flex gap-1 items-center h-[40px]">
+                  <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
+                  <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
+                  <div className="w-2 h-2 bg-[#2B4C3E] rounded-full typing-dot"></div>
+                </div>
+              </div>
+            )}
+            <div ref={chatEndRef} />
+          </div>
+
+          <div className="p-3 bg-white border-t border-[#EBEBE6] flex flex-col gap-2">
+            <span className="text-[10px] uppercase font-bold text-[#646762] tracking-widest pl-1">Suggested Queries:</span>
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              <button onClick={() => handleSendMessage("Why should we hire Manav?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Why hire?</button>
+              <button onClick={() => handleSendMessage("What is his LLM experience?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">LLM Experience</button>
+              <button onClick={() => handleSendMessage("Has he led any teams?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Leadership</button>
+              <button onClick={() => handleSendMessage("What is his tech stack?")} className="whitespace-nowrap px-3 py-1.5 text-xs bg-[#F7F7F4] hover:bg-[#EBEBE6] rounded-full transition-colors font-medium border border-transparent hover:border-[#2B4C3E]/20">Tech Stack</button>
+            </div>
+
+            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(userInput); }} className="relative mt-1">
+              <input
+                type="text"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                placeholder="Ask something else..."
+                className="w-full bg-[#F7F7F4] border border-[#EBEBE6] rounded-full py-2 pl-4 pr-10 text-xs focus:outline-none focus:border-[#2B4C3E]/40"
+                disabled={isTyping}
+              />
+              <button
+                type="submit"
+                disabled={isTyping || !userInput.trim()}
+                className="absolute right-1 top-1 bottom-1 w-8 flex items-center justify-center bg-[#2B4C3E] text-white rounded-full hover:bg-[#1C1E1A] disabled:opacity-50 transition-colors"
+              >
+                <ArrowRight size={12} />
+              </button>
+            </form>
+          </div>
+        </div>
 
         {/* Floating Toggle Button */}
         <button
