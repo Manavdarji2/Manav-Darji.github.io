@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { ChatOpenAI } from "@langchain/openai";
 import {
   Github,
   Linkedin,
@@ -339,34 +340,52 @@ const App = () => {
     return bestMatch;
   };
 
-  const handleSendMessage = (queryText) => {
+  const handleSendMessage = async (queryText) => {
     if (!queryText.trim() || isTyping) return;
 
     setChatHistory(prev => [...prev, { role: 'user', text: queryText }]);
     setUserInput("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      let aiResponse = "";
-      let prefix = "";
-
-      if (apiKey && !apiLimitReached) {
-        try {
-          // Simulate API failure if api key is provided but rate limited internally
-          throw new Error("Simulating API Rate Limit Exceeded");
-        } catch (error) {
-          setApiLimitReached(true);
-          prefix = "[API Limit Reached - Pre-config Fallback] ";
-          aiResponse = getFallbackResponse(queryText);
-        }
-      } else {
-        prefix = "[Pre-config Response] ";
-        aiResponse = getFallbackResponse(queryText);
+    try {
+      // Ensure process.env is defined to avoid ReferenceError in Vite
+      if (typeof window !== 'undefined' && !window.process) {
+        window.process = { env: {} };
+      } else if (typeof process === 'undefined') {
+        globalThis.process = { env: {} };
       }
 
-      setIsTyping(false);
+      // Vite exposes env vars prefixed with VITE_ via import.meta.env
+      // We map it to process.env.OPENROUTER_API_KEY for Langchain 
+      process.env.OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || apiKey;
+      process.env.OPENAI_API_KEY = process.env.OPENROUTER_API_KEY; // Fallback for some wrappers
+
+      // LangChain configuration for OpenRouter (Official JS Docs)
+      const model = new ChatOpenAI({
+        modelName: "openai/gpt-3.5-turbo",
+        apiKey: process.env.OPENROUTER_API_KEY,
+        configuration: {
+          baseURL: "https://openrouter.ai/api/v1",
+          defaultHeaders: {
+            "HTTP-Referer": window.location.href, // Optional. Site URL for rankings on openrouter.ai.
+            "X-Title": "Manav Portfolio AI", // Optional. Site title for rankings on openrouter.ai.
+          }
+        }
+      });
+      const context = resumeDB.map(entry => entry.answer).join("\n");
+      const prompt = `You are Manav's AI assistant. Answer the user based on his resume context:\n\n${context}\n\nQuestion: ${queryText}`;
+
+      const response = await model.invoke(prompt);
+
+      setChatHistory(prev => [...prev, { role: 'ai', text: response.content, animated: true }]);
+    } catch (error) {
+      console.error(error);
+      let aiResponse = getFallbackResponse(queryText);
+      let prefix = `[Error: ${error.message}] [Pre-config Response Fallback] `;
       setChatHistory(prev => [...prev, { role: 'ai', text: prefix + aiResponse, animated: true }]);
-    }, 1200);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
 

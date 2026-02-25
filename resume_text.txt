@@ -1,6 +1,6 @@
 Manav Viral Darji
 Artificial Intelligence & Machine Learning Student
-/envel⌢pedarjimanav3@gmail.com /githubgithub.com/Manavdarji2 /linkedinlinkedin.com/in/manav-darji18 /kagglemanavdarji18
+/email/darjimanav3@gmail.com /githubgithub.com/Manavdarji2 /linkedinlinkedin.com/in/manav-darji18 /kagglemanavdarji18
 Summary
 Aspiring AI/ML Engineer skilled in building and optimizing Deep Learning, GAN, and LLM-based systems using
 PyTorch, TensorFlow, and Scikit-learn. Strong foundation in Transformer/BERT architectures, RAG pipelines, and
