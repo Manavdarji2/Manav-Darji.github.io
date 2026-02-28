@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   // Since your repository is named "Manav-Darji.github.io" but your username is "Manavdarji2",
   // GitHub Pages treats it as a Project Site and hosts it at /Manav-Darji.github.io/.
-  base: '/Manav-Darji.github.io/',
+  base: '/',
   plugins: [
     react(),
     tailwindcss(),
