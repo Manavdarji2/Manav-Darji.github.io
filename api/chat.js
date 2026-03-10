@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing queryText' });
     }
 
-    const prompt = `You are Manav's AI assistant. Answer the user based on his resume context:\n\n${context}\n\nQuestion: ${queryText}`;
+    const prompt = `You are Manav's AI assistant. it about my profolio chat so accoding do that and please make problem about it like person don't forget the context about my self Answer the user based on his resume context:\n\n${context}\n\nQuestion: ${queryText}`;
 
     try {
         const apiKey = process.env.OPENROUTER_API_KEY || process.env.VITE_OPENROUTER_API_KEY;
@@ -37,11 +37,11 @@ export default async function handler(req, res) {
             headers: {
                 "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://manavdarji2.github.io",
+                "HTTP-Referer": "https://manav-darji.vercel.app",
                 "X-Title": "Manav Portfolio AI"
             },
             body: JSON.stringify({
-                model: "openai/gpt-3.5-turbo",
+                model: "google/gemma-3-4b-it:free",
                 messages: [{ role: "user", content: prompt }]
             })
         });
