@@ -2,11 +2,11 @@
 
 Welcome to the repository for my personal portfolio website! This site is designed to showcase my projects, skills, research, and experience as an AI/ML Engineer and Researcher. It features a modern, clean UI with a custom-built "RAG Agent Pipeline" (Chatbot) that interactively answers questions based on my resume.
 
-## 🚀 Live Demo
+## Live Demo
 
-[Visit my Portfolio](https://manavdarji2.github.io/Manav-Darji.github.io/) *(Or the custom domain if configured)*
+[Visit my Portfolio](https://manav-darji.vercel.app)
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Frontend:** [React](https://react.dev/)
 - **Build Tool:** [Vite](https://vitejs.dev/)
@@ -15,14 +15,14 @@ Welcome to the repository for my personal portfolio website! This site is design
 - **Animations:** Custom React Hooks & Intersection Observers
 - **Hosting:** GitHub Pages
 
-## ✨ Key Features
+## Key Features
 
 - **Interactive Resume Chatbot:** A simulated RAG (Retrieval-Augmented Generation) agent that allows visitors to ask natural language questions about my experience, skills, and projects.
 - **Dynamic Scrollytelling:** Features Z-axis depth lens effects and scroll-based animations for an immersive browsing experience.
 - **Project Showcase:** Detailed breakdowns of my work in Generative AI, NLP, and Deep Learning (e.g., *GenAI Timetable System*, *UX-GenAI Synthesizer*, *Neural Vision Classifier*).
 - **Responsive & Optimized:** Fully responsive design built with a minimalistic, AI-inspired "latent space" aesthetic.
 
-## 💻 Local Development
+## Local Development
 
 Follow these steps to run the portfolio locally on your machine:
 
@@ -59,4 +59,4 @@ I am always open to discussing ML/AI Research Internships, engineering roles, an
 - **Kaggle:** [manavdarji18](https://www.kaggle.com/manavdarji18)
 
 ---
-*Designed & Developed by Manav Viral Darji*
+**Designed & Developed by Manav Viral Darji**

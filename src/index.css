@@ -105,3 +105,31 @@
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Animated gradient shimmer text */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #2B4C3E 0%,
+    #4a8f6d 25%,
+    #2B4C3E 50%,
+    #1a5c3a 75%,
+    #2B4C3E 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShimmer 4s linear infinite;
+}
+
+@keyframes gradientShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth section transitions */
+section {
+  transition: opacity 0.3s ease;
+}

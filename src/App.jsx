@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import Lenis from 'lenis';
 import {
   Github,
   Linkedin,
@@ -15,7 +16,7 @@ import {
   X
 } from 'lucide-react';
 
-import { DecryptText, OpticalReveal, MagneticButton } from './components/ui/UIComponents';
+import { DecryptText, OpticalReveal, MagneticButton, FloatingParticles } from './components/ui/UIComponents';
 import { Hero } from './components/sections/Hero';
 import { Profile } from './components/sections/Profile';
 import { Projects } from './components/sections/Projects';
@@ -95,9 +96,19 @@ const FocalDepthQuote = () => {
 const App = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [spotlight, setSpotlight] = useState({ x: -200, y: -200 });
   const [isHovering, setIsHovering] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [navbarVisible, setNavbarVisible] = useState(false);
+
+  // Typewriter cycling placeholder
+  const chatPlaceholders = ['Ask about skills...', 'Ask about projects...', 'Ask about certifications...', 'Ask about leadership...', 'Ask anything...',];
+  const [placeholderIdx, setPlaceholderIdx] = useState(0);
+  const [placeholderText, setPlaceholderText] = useState('');
+  const [placeholderTyping, setPlaceholderTyping] = useState(true);
+
+  // Nav magnetic state
+  const [navPos, setNavPos] = useState({});
 
   // RAG / Chatbot State
   const [chatOpen, setChatOpen] = useState(false);
@@ -118,15 +129,21 @@ const App = () => {
   }, [chatHistory, isTyping, chatOpen]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress((window.scrollY / total) * 100);
-      setNavbarVisible(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    // Lenis smooth scroll
+    const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+    const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
 
-    const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+    // Scroll-driven progress bar
+    lenis.on('scroll', ({ progress }) => {
+      setScrollProgress(progress * 100);
+      setNavbarVisible(window.scrollY > 50);
+    });
+
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      setSpotlight({ x: e.clientX, y: e.clientY });
+    };
     const handleMouseOver = (e) => setIsHovering(!!e.target.closest('a, button, .group'));
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -138,12 +155,33 @@ const App = () => {
     document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      lenis.destroy();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
       observer.disconnect();
     };
   }, []);
+
+  // Typewriter cycling placeholder effect
+  useEffect(() => {
+    const full = chatPlaceholders[placeholderIdx];
+    let timeout;
+    if (placeholderTyping) {
+      if (placeholderText.length < full.length) {
+        timeout = setTimeout(() => setPlaceholderText(full.slice(0, placeholderText.length + 1)), 60);
+      } else {
+        timeout = setTimeout(() => setPlaceholderTyping(false), 1800);
+      }
+    } else {
+      if (placeholderText.length > 0) {
+        timeout = setTimeout(() => setPlaceholderText(placeholderText.slice(0, -1)), 35);
+      } else {
+        setPlaceholderIdx((i) => (i + 1) % chatPlaceholders.length);
+        setPlaceholderTyping(true);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [placeholderText, placeholderTyping, placeholderIdx]);
 
 
   const getFallbackResponse = (query) => {
@@ -182,7 +220,7 @@ const App = () => {
 
       if (localApiKey) {
         // DIRECT FRONTEND FETCH (Development/GitHub Pages fallback without LangChain)
-        const prompt = `You are Manav's AI assistant. Answer the user based on his resume context:\n\n${context}\n\nQuestion: ${queryText}`;
+        const systemMsg = `You are a dedicated AI assistant embedded in Manav Viral Darji's personal portfolio website. Your ONLY purpose is to answer questions about Manav — his skills, projects, education, certifications, achievements, and career goals.\n\nSTRICT RULES:\n1. Only answer questions directly related to Manav's resume, skills, projects, education, or professional background.\n2. If the user asks ANYTHING off-topic (coding problems, algorithms, general programming, math, current events, etc.) respond ONLY with: "I'm Manav's portfolio assistant and can only answer questions about him. Please ask me about his skills, projects, experience, or education!"\n3. Never write or explain code for the user.\n4. Keep answers concise and professional.\n\nManav's resume context:\n${context}`;
         const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
@@ -193,7 +231,10 @@ const App = () => {
           },
           body: JSON.stringify({
             model: "openai/gpt-3.5-turbo",
-            messages: [{ role: "user", content: prompt }]
+            messages: [
+              { role: "system", content: systemMsg },
+              { role: "user", content: queryText }
+            ]
           })
         });
 
@@ -248,6 +289,19 @@ const App = () => {
         </p>
       </div>
 
+      {/* Cursor Spotlight Glow */}
+      <div
+        className="fixed pointer-events-none z-[9998] hidden md:block"
+        style={{
+          width: 400,
+          height: 400,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(43,76,62,0.10) 0%, rgba(43,76,62,0.04) 40%, transparent 70%)',
+          transform: `translate(${spotlight.x - 200}px, ${spotlight.y - 200}px)`,
+          transition: 'transform 0.12s ease-out',
+        }}
+      />
+
       {/* Custom Geometric Cursor */}
       <div
         className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[9999] hidden md:block"
@@ -266,6 +320,9 @@ const App = () => {
       {/* Latent Space Background */}
       <div className="latent-bg"></div>
 
+      {/* Floating Particles */}
+      <FloatingParticles count={25} />
+
       {/* RAG RESUME ASSISTANT INTERFACE */}
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end">
         {/* Chat Window */}
@@ -278,7 +335,7 @@ const App = () => {
             <button onClick={() => setChatOpen(false)} className="hover:text-[#2B4C3E] transition-colors"><X size={16} /></button>
           </div>
 
-          <div className="h-[300px] overflow-y-auto p-4 flex flex-col gap-4 bg-[#F7F7F4] text-sm">
+          <div data-lenis-prevent className="h-[300px] overflow-y-auto p-4 flex flex-col gap-4 bg-[#F7F7F4] text-sm">
             {chatHistory.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'ai' ? 'justify-start' : 'justify-end'}`}>
                 <div className={`max-w-[85%] p-3 rounded-2xl leading-relaxed ${msg.role === 'ai' ? 'bg-white border border-[#EBEBE6] text-[#1C1E1A] rounded-tl-sm' : 'bg-[#2B4C3E] text-white rounded-tr-sm'}`}>
@@ -312,7 +369,7 @@ const App = () => {
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
-                placeholder="Ask something else..."
+                placeholder={userInput ? '' : placeholderText}
                 className="w-full bg-[#F7F7F4] border border-[#EBEBE6] rounded-full py-2 pl-4 pr-10 text-xs focus:outline-none focus:border-[#2B4C3E]/40"
                 disabled={isTyping}
               />
@@ -345,7 +402,23 @@ const App = () => {
           <div className="hidden md:flex gap-8 text-sm font-medium opacity-70">
             {['home', 'profile', 'research', 'milestones'].map((id, idx) => (
               <OpticalReveal delay={0.1 * idx} key={id}>
-                <a href={`#${id}`} className="relative hover:opacity-100 transition-opacity flex items-center gap-2 capitalize">
+                <a
+                  href={`#${id}`}
+                  className="relative hover:opacity-100 transition-opacity flex items-center gap-2 capitalize"
+                  style={{
+                    transform: navPos[id] ? `translate(${navPos[id].x}px, ${navPos[id].y}px)` : 'translate(0,0)',
+                    transition: navPos[id] ? 'transform 0.1s linear' : 'transform 0.5s ease-out',
+                    display: 'inline-block',
+                  }}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setNavPos(p => ({ ...p, [id]: {
+                      x: (e.clientX - (rect.left + rect.width / 2)) * 0.35,
+                      y: (e.clientY - (rect.top + rect.height / 2)) * 0.35,
+                    }}));
+                  }}
+                  onMouseLeave={() => setNavPos(p => ({ ...p, [id]: null }))}
+                >
                   {activeSection === id && <span className="w-1.5 h-1.5 rounded-full bg-[#2B4C3E]" />}
                   {id}
                 </a>

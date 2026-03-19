@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
-import { OpticalReveal } from '../ui/UIComponents';
+import { OpticalReveal, StaggerContainer, StaggerItem } from '../ui/UIComponents';
 import { capabilities } from '../../data/portfolioData';
 
 export const Profile = () => {
@@ -10,14 +11,18 @@ export const Profile = () => {
                 <div className="lg:w-1/3">
                     <OpticalReveal delay={0}>
                         <h2 className="font-serif text-4xl md:text-5xl mb-8">Academic <br />Foundation.</h2>
-                        <div className="p-8 rounded-3xl bg-white border border-[#EBEBE6] shadow-sm mb-8">
+                        <motion.div
+                            whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(43,76,62,0.12)" }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="p-8 rounded-3xl bg-white border border-[#EBEBE6] shadow-sm mb-8"
+                        >
                             <GraduationCap className="text-[#2B4C3E] mb-6" size={32} />
                             <h3 className="font-semibold text-xl mb-2">B.Sc. (Hons) in Artificial Intelligence & Machine Learning</h3>
                             <p className="text-[#646762] mb-4">MKES College (Affiliated to University of Mumbai)</p>
                             <div className="flex justify-between items-center text-sm font-medium border-t border-[#EBEBE6] pt-4">
                                 <span className="text-[#2B4C3E]">CGPA: 8.5</span><span className="text-[#646762]">Expected: 2027</span>
                             </div>
-                        </div>
+                        </motion.div>
                         <p className="text-[#646762] leading-relaxed text-sm">
                             Relevant Coursework: Deep Learning, NLP, Probability & Statistics, Data Structures, Computer Vision.
                             Active contributor to Kaggle, FreeCodeCamp, and Google Developer communities.
@@ -26,10 +31,18 @@ export const Profile = () => {
                 </div>
 
                 {/* Epoch & Weights Terminal Layout */}
-                <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <StaggerContainer className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
                     {capabilities.map((item, i) => (
-                        <OpticalReveal key={i} delay={i * 0.1} className={item.span}>
-                            <div className="p-8 rounded-3xl bg-[#1C1E1A] text-white border border-[#292929] hover:border-[#2B4C3E] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between group">
+                        <StaggerItem key={i} className={item.span}>
+                            <motion.div
+                                whileHover={{
+                                    y: -4,
+                                    borderColor: "#2B4C3E",
+                                    boxShadow: "0 0 30px rgba(43,76,62,0.2), 0 0 60px rgba(43,76,62,0.05)"
+                                }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                className="p-8 rounded-3xl bg-[#1C1E1A] text-white border border-[#292929] h-full flex flex-col justify-between group transition-colors duration-300"
+                            >
                                 <div>
                                     <div className="flex items-center gap-3 mb-6 border-b border-[#333] pb-4">
                                         <item.icon size={20} className="text-[#2B4C3E]" />
@@ -51,10 +64,10 @@ export const Profile = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </OpticalReveal>
+                            </motion.div>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
             </div>
         </section>
     );
