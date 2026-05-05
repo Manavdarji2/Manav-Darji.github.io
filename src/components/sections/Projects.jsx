@@ -10,7 +10,7 @@ export const Projects = () => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 px-4 md:px-0">
                     <div>
                         <h2 className="font-serif text-4xl md:text-5xl mb-4">Featured Projects</h2>
-                        <p className="text-[#646762] text-lg">Models, Research, and Full-Stack AI Deployments.</p>
+                        <p className="text-[#646762] text-lg">Models, Training and Full-Stack AI Deployments.</p>
                     </div>
                 </div>
             </OpticalReveal>
@@ -19,11 +19,19 @@ export const Projects = () => {
                 {projects.map((project, i) => (
                     <StaggerItem key={i}>
                         <TiltCard className="h-full perspective-[1000px]">
-                            <a href={project.link || "#"} className="block p-8 rounded-[2rem] bg-[#F7F7F4] border border-[#EBEBE6] min-h-[420px] md:min-h-[380px] h-auto flex flex-col group relative overflow-hidden hover:shadow-2xl hover:border-[#2B4C3E]/40 transition-all duration-500 pb-[180px] md:pb-[140px]">
+                            <a href={project.link || "#"} target={project.live ? "_blank" : "_self"} rel="noopener noreferrer" className="block p-8 rounded-[2rem] bg-[#F7F7F4] border border-[#EBEBE6] min-h-[420px] md:min-h-[380px] h-auto flex flex-col group relative overflow-hidden hover:shadow-2xl hover:border-[#2B4C3E]/40 transition-all duration-500 pb-[180px] md:pb-[140px]">
                                 <div className="flex justify-between items-start mb-4">
-                                    <span className="text-xs font-semibold uppercase tracking-widest block text-[#2B4C3E]">
-                                        {project.category}
-                                    </span>
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                        <span className="text-xs font-semibold uppercase tracking-widest block text-[#2B4C3E]">
+                                            {project.category}
+                                        </span>
+                                        {project.live && (
+                                            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-widest">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
+                                                Live
+                                            </span>
+                                        )}
+                                    </div>
                                     <div className="w-8 h-8 rounded-full bg-white border border-[#EBEBE6] flex items-center justify-center text-[#1C1E1A] group-hover:bg-[#2B4C3E] group-hover:text-white group-hover:border-[#2B4C3E] transition-all duration-300 transform group-hover:rotate-[-45deg]">
                                         <ArrowRight size={14} />
                                     </div>

@@ -12,49 +12,99 @@ export const projects = [
         title: "GenAI Timetable System",
         category: "LLM & Agentic AI",
         impact: "Automated Multi-Agent Scheduling",
-        tags: ["Flask", "LangChain", "LLM APIs"],
-        desc: "Developed a Generative AI-based timetable management system using multi-agent reasoning to automate complex scheduling. Extending with dynamic rescheduling.",
-        link: "https://github.com/Manavdarji2"
+        tags: ["Flask", "LangChain", "LLM APIs", "Python"],
+        desc: "Generative AI-based timetable management system using multi-agent reasoning to automate complex scheduling with dynamic rescheduling on teacher absence.",
+        link: "https://github.com/Manavdarji2/Timetable-genius"
     },
     {
-        title: "UX-GenAI Synthesizer",
-        category: "Generative Research",
-        impact: "GAN-RAG Output Synthesis",
-        tags: ["Pix2Pix", "SPADE", "ChromaDB", "RAG"],
-        desc: "Independent research integrating GAN and RAG architectures for AI-driven UX design generation. Evaluating generator-discriminator performance.",
-        link: "https://github.com/Manavdarji2"
+        title: "Aurelia — Luxury Fashion Site",
+        category: "Full-Stack & Cloud",
+        impact: "Live on Google Cloud Run",
+        tags: ["HTML/CSS/JS", "Python", "Google Cloud Run", "Antigravity MCP"],
+        desc: "First live-deployed project built during the GFG × Google Antigravity Workshop. Luxury fashion e-commerce platform containerized via Docker and deployed on Google Cloud Run CLI.",
+        link: "https://aurelia-234264899332.us-central1.run.app/index.html",
+        live: true
     },
     {
-        title: "Mumbai Real Estate Pipeline",
+        title: "Mumbai Real Estate Price Predictor",
         category: "Machine Learning",
         impact: "92% Accuracy on 3K+ Listings",
-        tags: ["Random Forest", "Scikit-learn"],
-        desc: "Architected a predictive model achieving 92% accuracy on 3K+ listings. Implemented rigorous feature scaling, encoding, and cross-validation techniques.",
-        link: "https://github.com/Manavdarji2"
+        tags: ["Random Forest", "Scikit-learn", "Streamlit"],
+        desc: "Predictive model achieving 92% accuracy on 3,000+ property listings using feature scaling, one-hot encoding & k-fold cross-validation. Deployed as an interactive Streamlit web app.",
+        link: "https://pricepredictionmumbai.streamlit.app/",
+        live: true
+    },
+    {
+        title: "MedSimplify",
+        category: "Healthcare AI",
+        impact: "Medical Report Simplifier",
+        tags: ["TypeScript", "AI/LLM", "Healthcare"],
+        desc: "An AI-powered web application that simplifies complex medical reports into plain, easy-to-understand language, empowering patients to understand their diagnoses.",
+        link: "https://github.com/Manavdarji2/MedSimplify"
+    },
+    {
+        title: "Research Paper Connection Finder",
+        category: "Knowledge Graph & MCP",
+        impact: "Graph-based Idea Discovery",
+        tags: ["CSS", "MCP", "Graph Theory", "LLM"],
+        desc: "Visualizes connections between research papers using graph structures and MCP. Finds conceptual links to help researchers discover new project ideas and cross-domain insights.",
+        link: "https://github.com/Manavdarji2/Research-Paper-Connection-Finder"
+    },
+    {
+        title: "Local AI Assistant",
+        category: "Agentic AI",
+        impact: "Multi-Modal Local + Cloud Agent",
+        tags: ["Python", "Multi-Agent", "LLM", "Vision"],
+        desc: "Combines local and online AI modes with multiple agents. A fully local AI assistant supporting text & image analysis, blending privacy-first local inference with cloud AI APIs.",
+        link: "https://github.com/Manavdarji2/Local-AI"
+    },
+    {
+        title: "YouTube Video Summarizer",
+        category: "LLM & NLP",
+        impact: "Query-Based Transcript Summarization",
+        tags: ["Python", "LLM", "RAG", "Streamlit"],
+        desc: "Lightweight YouTube Video Summarizer leveraging transcripts and documents to generate clear, structured summaries. Powered by LLMs with query-based retrieval.",
+        link: "https://github.com/Manavdarji2/yt-summarizer.github.io"
+    },
+    {
+        title: "Equity Research Analysis Tool",
+        category: "FinTech AI",
+        impact: "URL-Based Financial Research",
+        tags: ["Python", "LangChain", "URL Loader", "LLM"],
+        desc: "Research-based tool that retrieves and analyzes financial information from user-provided URLs. Uses LangChain URL loaders for real-time equity research synthesis.",
+        link: "https://github.com/Manavdarji2/Equity-Research-Analysis-"
     },
     {
         title: "Neural Vision Classifier",
         category: "Deep Learning",
         impact: "94% Top-1 Accuracy",
         tags: ["TensorFlow", "Keras", "CNN"],
-        desc: "Designed a Convolutional Neural Network achieving 94% accuracy on 2K+ image datasets, incorporating ReLU activations and dropout regularization.",
+        desc: "Convolutional Neural Network achieving 94% accuracy on 2K+ image datasets, incorporating ReLU activations and dropout regularization for robust generalization.",
         link: "https://github.com/Manavdarji2"
     },
     {
         title: "Twitter Sentiment Analysis",
         category: "NLP",
         impact: "87% Semantic Evaluation",
-        tags: ["NLP", "KNN Algorithm"],
-        desc: "Developed a KNN-based sentiment classifier trained on 50K tweets, achieving 87% accuracy in real-world semantic evaluation.",
+        tags: ["NLP", "KNN Algorithm", "Python"],
+        desc: "KNN-based sentiment classifier trained on 50K tweets, achieving 87% accuracy in real-world semantic evaluation with optimized preprocessing.",
         link: "https://github.com/Manavdarji2"
     },
     {
-        title: "Personal AI Assistant",
-        category: "Voice & Automation",
-        impact: "Real-time API Execution",
-        tags: ["API Integration", "Voice UI"],
-        desc: "Built a voice-enabled AI assistant for real-time task automation and intelligent query handling utilizing multiple concurrent APIs.",
-        link: "https://github.com/Manavdarji2"
+        title: "Snake Game — Reinforcement Learning",
+        category: "Reinforcement Learning",
+        impact: "Self-Learning PyTorch Agent",
+        tags: ["Python", "PyTorch", "RL", "Deep Q-Learning"],
+        desc: "Classic Snake game where an AI agent learns entirely from environment interaction using Deep Q-Learning with PyTorch, improving strategy over training episodes.",
+        link: "https://github.com/Manavdarji2/Snake-Game-RL"
+    },
+    {
+        title: "SQL Query Generator — GenAI",
+        category: "Generative AI",
+        impact: "Natural Language to SQL",
+        tags: ["Python", "LLM", "SQL", "Jupyter"],
+        desc: "Natural language to SQL query generator using Large Language Models. Allows non-technical users to query databases using plain English instructions.",
+        link: "https://github.com/Manavdarji2/SQL-database-query-gen-ai"
     }
 ];
 
@@ -83,12 +133,16 @@ export const resumeDB = [
         answer: "I developed a GenAI Timetable Management System using Flask and LLM-powered reasoning to automate class and teacher scheduling. It integrates LLM APIs with prompt-engineering for context-aware generation and dynamic rescheduling upon teacher absence."
     },
     {
-        keywords: ["ux", "ux-genai", "research", "gan", "spade", "pix2pix", "design"],
-        answer: "I am actively researching the integration of GAN and RAG architectures for AI-driven UX design generation. This involves leveraging Pix2Pix, SPADE, and ChromaDB to synthesize structured UX outputs."
+        keywords: ["aurelia", "fashion", "cloud run", "luxury", "workshop", "gfg", "google", "live project", "deployed"],
+        answer: "Aurelia is a live luxury fashion e-commerce site I built and deployed during the GFG × Google Antigravity Workshop. It uses HTML/CSS/JS with a Python backend, containerized via Docker and deployed on Google Cloud Run. You can visit it at aurelia-234264899332.us-central1.run.app."
     },
     {
-        keywords: ["projects", "machine learning projects", "real estate", "cnn", "sentiment", "twitter", "vision"],
-        answer: "My key projects include a Mumbai Real Estate Pipeline (Random Forest, 92% accuracy), a CNN Image Classifier (TensorFlow/Keras, 94% accuracy), and a Twitter Sentiment Analysis tool (KNN, 87% accuracy on 50K tweets)."
+        keywords: ["projects", "machine learning projects", "real estate", "cnn", "sentiment", "twitter", "vision", "streamlit", "price", "predictor", "mumbai", "all projects", "github projects"],
+        answer: "I have 12 projects showcased on my portfolio. Live deployments: Aurelia (luxury fashion, Google Cloud Run) and Mumbai Real Estate Price Predictor (92% accuracy, Streamlit). GitHub projects include: GenAI Timetable System, MedSimplify, Research Paper Connection Finder, Local AI Assistant, YouTube Video Summarizer, Equity Research Analysis Tool, Neural Vision Classifier, Twitter Sentiment Analysis, Snake Game RL, and SQL Query Generator."
+    },
+    {
+        keywords: ["github", "repositories", "repos", "medsimplify", "snake", "reinforcement", "sql", "youtube summarizer", "equity", "local ai", "research paper"],
+        answer: "My GitHub (github.com/Manavdarji2) has 18 public repositories. Featured: MedSimplify (TypeScript, AI medical reports), Research Paper Connection Finder (MCP + graph), Local AI Assistant (multi-modal multi-agent), YouTube Summarizer (RAG + LLM), Equity Research Tool (LangChain), Snake Game RL (PyTorch Deep Q-Learning), and SQL GenAI Query Generator."
     },
     {
         keywords: ["certifications", "aws", "achievements", "hackathon", "awards", "national coding league", "rank", "isro"],
