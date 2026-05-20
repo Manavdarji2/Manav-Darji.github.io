@@ -14,7 +14,7 @@ export const projects = [
         impact: "Automated Multi-Agent Scheduling",
         tags: ["Flask", "LangChain", "LLM APIs", "Python"],
         desc: "Generative AI-based timetable management system using multi-agent reasoning to automate complex scheduling with dynamic rescheduling on teacher absence.",
-        link: "https://github.com/Manavdarji2/Timetable-genius"
+        link: "https://github.com/manav-darji-aiml/Timetable-genius"
     },
     {
         title: "Aurelia — Luxury Fashion Site",
@@ -40,7 +40,7 @@ export const projects = [
         impact: "Medical Report Simplifier",
         tags: ["TypeScript", "AI/LLM", "Healthcare"],
         desc: "An AI-powered web application that simplifies complex medical reports into plain, easy-to-understand language, empowering patients to understand their diagnoses.",
-        link: "https://github.com/Manavdarji2/MedSimplify"
+        link: "https://github.com/manav-darji-aiml/MedSimplify"
     },
     {
         title: "Research Paper Connection Finder",
@@ -48,7 +48,7 @@ export const projects = [
         impact: "Graph-based Idea Discovery",
         tags: ["CSS", "MCP", "Graph Theory", "LLM"],
         desc: "Visualizes connections between research papers using graph structures and MCP. Finds conceptual links to help researchers discover new project ideas and cross-domain insights.",
-        link: "https://github.com/Manavdarji2/Research-Paper-Connection-Finder"
+        link: "https://github.com/manav-darji-aiml/Research-Paper-Connection-Finder"
     },
     {
         title: "Local AI Assistant",
@@ -56,7 +56,7 @@ export const projects = [
         impact: "Multi-Modal Local + Cloud Agent",
         tags: ["Python", "Multi-Agent", "LLM", "Vision"],
         desc: "Combines local and online AI modes with multiple agents. A fully local AI assistant supporting text & image analysis, blending privacy-first local inference with cloud AI APIs.",
-        link: "https://github.com/Manavdarji2/Local-AI"
+        link: "https://github.com/manav-darji-aiml/Local-AI"
     },
     {
         title: "YouTube Video Summarizer",
@@ -64,7 +64,7 @@ export const projects = [
         impact: "Query-Based Transcript Summarization",
         tags: ["Python", "LLM", "RAG", "Streamlit"],
         desc: "Lightweight YouTube Video Summarizer leveraging transcripts and documents to generate clear, structured summaries. Powered by LLMs with query-based retrieval.",
-        link: "https://github.com/Manavdarji2/yt-summarizer.github.io"
+        link: "https://github.com/manav-darji-aiml/yt-summarizer.github.io"
     },
     {
         title: "Equity Research Analysis Tool",
@@ -72,7 +72,7 @@ export const projects = [
         impact: "URL-Based Financial Research",
         tags: ["Python", "LangChain", "URL Loader", "LLM"],
         desc: "Research-based tool that retrieves and analyzes financial information from user-provided URLs. Uses LangChain URL loaders for real-time equity research synthesis.",
-        link: "https://github.com/Manavdarji2/Equity-Research-Analysis-"
+        link: "https://github.com/manav-darji-aiml/Equity-Research-Analysis-"
     },
     {
         title: "Neural Vision Classifier",
@@ -80,7 +80,7 @@ export const projects = [
         impact: "94% Top-1 Accuracy",
         tags: ["TensorFlow", "Keras", "CNN"],
         desc: "Convolutional Neural Network achieving 94% accuracy on 2K+ image datasets, incorporating ReLU activations and dropout regularization for robust generalization.",
-        link: "https://github.com/Manavdarji2"
+        link: "https://github.com/manav-darji-aiml"
     },
     {
         title: "Twitter Sentiment Analysis",
@@ -88,7 +88,7 @@ export const projects = [
         impact: "87% Semantic Evaluation",
         tags: ["NLP", "KNN Algorithm", "Python"],
         desc: "KNN-based sentiment classifier trained on 50K tweets, achieving 87% accuracy in real-world semantic evaluation with optimized preprocessing.",
-        link: "https://github.com/Manavdarji2"
+        link: "https://github.com/manav-darji-aiml"
     },
     {
         title: "Snake Game — Reinforcement Learning",
@@ -96,7 +96,7 @@ export const projects = [
         impact: "Self-Learning PyTorch Agent",
         tags: ["Python", "PyTorch", "RL", "Deep Q-Learning"],
         desc: "Classic Snake game where an AI agent learns entirely from environment interaction using Deep Q-Learning with PyTorch, improving strategy over training episodes.",
-        link: "https://github.com/Manavdarji2/Snake-Game-RL"
+        link: "https://github.com/manav-darji-aiml/Snake-Game-RL"
     },
     {
         title: "SQL Query Generator — GenAI",
@@ -104,7 +104,7 @@ export const projects = [
         impact: "Natural Language to SQL",
         tags: ["Python", "LLM", "SQL", "Jupyter"],
         desc: "Natural language to SQL query generator using Large Language Models. Allows non-technical users to query databases using plain English instructions.",
-        link: "https://github.com/Manavdarji2/SQL-database-query-gen-ai"
+        link: "https://github.com/manav-darji-aiml/SQL-database-query-gen-ai"
     }
 ];
 
@@ -142,7 +142,7 @@ export const resumeDB = [
     },
     {
         keywords: ["github", "repositories", "repos", "medsimplify", "snake", "reinforcement", "sql", "youtube summarizer", "equity", "local ai", "research paper"],
-        answer: "My GitHub (github.com/Manavdarji2) has 18 public repositories. Featured: MedSimplify (TypeScript, AI medical reports), Research Paper Connection Finder (MCP + graph), Local AI Assistant (multi-modal multi-agent), YouTube Summarizer (RAG + LLM), Equity Research Tool (LangChain), Snake Game RL (PyTorch Deep Q-Learning), and SQL GenAI Query Generator."
+        answer: "My GitHub (github.com/manav-darji-aiml) has 18 public repositories. Featured: MedSimplify (TypeScript, AI medical reports), Research Paper Connection Finder (MCP + graph), Local AI Assistant (multi-modal multi-agent), YouTube Summarizer (RAG + LLM), Equity Research Tool (LangChain), Snake Game RL (PyTorch Deep Q-Learning), and SQL GenAI Query Generator."
     },
     {
         keywords: ["certifications", "aws", "achievements", "hackathon", "awards", "national coding league", "rank", "isro"],

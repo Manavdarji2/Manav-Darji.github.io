@@ -28,7 +28,7 @@ Follow these steps to run the portfolio locally on your machine:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Manavdarji2/Manav-Darji.github.io.git
+git clone https://github.com/manav-darji-aiml/Manav-Darji.github.io.git
 cd Manav-Darji.github.io
 ```
 
@@ -55,7 +55,7 @@ I am always open to discussing ML/AI Research Internships, engineering roles, an
 
 - **Email:** darjimanav3@gmail.com
 - **LinkedIn:** [manav-darji18](https://linkedin.com/in/manav-darji18)
-- **GitHub:** [Manavdarji2](https://github.com/Manavdarji2)
+- **GitHub:** [manav-darji-aiml](https://github.com/manav-darji-aiml)
 - **Kaggle:** [manavdarji18](https://www.kaggle.com/manavdarji18)
 
 ---

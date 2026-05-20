@@ -44,7 +44,7 @@ export const Hero = () => {
                         View Research Work <ArrowRight size={18} />
                     </MagneticButton>
                     <div className="flex gap-4">
-                        <MagneticButton href="https://github.com/Manavdarji2" aria-label="GitHub Profile"><Github size={20} /></MagneticButton>
+                        <MagneticButton href="https://github.com/manav-darji-aiml" aria-label="GitHub Profile"><Github size={20} /></MagneticButton>
                         <MagneticButton href="https://linkedin.com/in/manav-darji18" aria-label="LinkedIn Profile"><Linkedin size={20} /></MagneticButton>
                     </div>
                 </OpticalReveal>
