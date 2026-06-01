@@ -324,9 +324,9 @@ const App = () => {
       <FloatingParticles count={25} />
 
       {/* RAG RESUME ASSISTANT INTERFACE */}
-      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end">
+      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end pointer-events-none">
         {/* Chat Window */}
-        <div className={`mb-4 w-[calc(100vw-2rem)] sm:w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right ${chatOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}>
+        <div className={`mb-4 w-[calc(100vw-2rem)] sm:w-[350px] bg-white border border-[#EBEBE6] rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right pointer-events-auto ${chatOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 !pointer-events-none'}`}>
           <div className="bg-[#1C1E1A] text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Bot size={18} className="text-[#2B4C3E]" />
@@ -387,7 +387,7 @@ const App = () => {
         {/* Floating Toggle Button */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          className={`px-4 py-4 rounded-full font-mono text-sm font-bold shadow-xl flex items-center gap-3 transition-all hover:scale-105 ${chatOpen ? 'bg-white text-[#1C1E1A] border border-[#EBEBE6]' : 'bg-[#1C1E1A] text-white hover:bg-[#2B4C3E]'}`}
+          className={`px-4 py-4 rounded-full font-mono text-sm font-bold shadow-xl flex items-center gap-3 transition-all hover:scale-105 pointer-events-auto ${chatOpen ? 'bg-white text-[#1C1E1A] border border-[#EBEBE6]' : 'bg-[#1C1E1A] text-white hover:bg-[#2B4C3E]'}`}
         >
           {chatOpen ? <X size={20} /> : <MessageSquare size={20} />}
           {!chatOpen && <span className="hidden sm:block pr-2">Interact with Resume</span>}

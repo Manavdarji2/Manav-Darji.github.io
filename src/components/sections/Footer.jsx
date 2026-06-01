@@ -36,7 +36,7 @@ export const Footer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-[#EBEBE6] pt-12"
+                className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-[#EBEBE6] pt-12 relative z-50 pointer-events-auto"
             >
                 <div>
                     <div className="font-serif text-2xl font-semibold mb-2">Manav Viral Darji</div>
@@ -52,11 +52,13 @@ export const Footer = () => {
                             key={label}
                             href={href}
                             aria-label={label}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ y: -3, scale: 1.15 }}
                             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                            className="text-[#646762] hover:text-[#2B4C3E] transition-colors"
+                            className="group cursor-pointer text-[#646762] hover:text-[#2B4C3E] transition-colors"
                         >
-                            <Icon size={20} />
+                            <Icon size={20} stroke="currentColor" className="transition-colors" />
                         </motion.a>
                     ))}
                 </div>

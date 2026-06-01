@@ -14,7 +14,7 @@ export const Hero = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest bg-[#EBEBE6] text-[#646762]"
                     >
                         <span className="w-1.5 h-1.5 rounded-full animate-pulse bg-[#2B4C3E]"></span>
-                        AI/ML Engineer & Researcher
+                        AI/ML Engineer | Agentic AI
                     </motion.div>
                 </OpticalReveal>
 

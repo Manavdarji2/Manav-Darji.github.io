@@ -34,8 +34,8 @@ to automate class and teacher scheduling.
 substitute teacher suggestions.
 –Integrated LLM APIs and applied prompt-engineering logic for adaptive and context-aware timetable generation.
 (Private repository)
-Researcher — UX-GenAI (Ongoing) 2025
-Independent Research
+UX-GenAI (Ongoing) 2025
+Independent Project
 –Researching the integration of GAN and RAG architectures for AI-driven UX design generation using Pix2Pix, SPADE,
 and ChromaDB.
 –Evaluating generator–discriminator performance to improve structured UX output synthesis.

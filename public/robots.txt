@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manav-darji-aiml.github.io/Manav-Darji.github.io/sitemap.xml

@@ -1,6 +1,6 @@
 # Manav Viral Darji - AI/ML Engineer Portfolio
 
-Welcome to the repository for my personal portfolio website! This site is designed to showcase my projects, skills, research, and experience as an AI/ML Engineer and Researcher. It features a modern, clean UI with a custom-built "RAG Agent Pipeline" (Chatbot) that interactively answers questions based on my resume.
+Welcome to the repository for my personal portfolio website! This site is designed to showcase my projects, skills, research, and experience as an AI/ML Engineer and Agentic AI. It features a modern, clean UI with a custom-built "RAG Agent Pipeline" (Chatbot) that interactively answers questions based on my resume.
 
 ## Live Demo
 
