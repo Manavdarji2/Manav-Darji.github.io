@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Lenis from 'lenis';
+import { motion, useScroll } from 'framer-motion';
 import {
   Github,
   Linkedin,
@@ -62,7 +63,7 @@ const FocalDepthQuote = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -92,23 +93,140 @@ const FocalDepthQuote = () => {
 };
 
 
+// --- OPTIMIZED SUB-COMPONENTS TO PREVENT APP-WIDE RE-RENDERS ---
+
+const ProgressBar = () => {
+  const { scrollYProgress } = useScroll();
+  return (
+    <motion.div
+      className="fixed top-0 left-0 h-1 bg-[#2B4C3E] z-50 origin-left"
+      style={{ scaleX: scrollYProgress, width: '100%' }}
+    />
+  );
+};
+
+const CustomCursor = () => {
+  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    const handleMouseOver = (e) => {
+      setIsHovering(!!e.target.closest('a, button, .group'));
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Cursor Spotlight Glow */}
+      <div
+        className="fixed pointer-events-none z-[9998] hidden md:block"
+        style={{
+          width: 400,
+          height: 400,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(43,76,62,0.10) 0%, rgba(43,76,62,0.04) 40%, transparent 70%)',
+          transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)`,
+          transition: 'transform 0.12s ease-out',
+        }}
+      />
+
+      {/* Custom Geometric Cursor */}
+      <div
+        className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[9999] hidden md:block"
+        style={{
+          transform: `translate(${mousePos.x - 8}px, ${mousePos.y - 8}px) scale(${isHovering ? 3 : 1})`,
+          opacity: mousePos.x === -100 ? 0 : 1,
+          backgroundColor: isHovering ? "transparent" : "#2B4C3E",
+          border: isHovering ? "1px solid #2B4C3E" : "none",
+          transition: "transform 0.15s ease-out, background-color 0.2s, border 0.2s"
+        }}
+      />
+    </>
+  );
+};
+
+const Navigation = () => {
+  const [navbarVisible, setNavbarVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [navPos, setNavPos] = useState({});
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavbarVisible(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id); });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <nav className={`fixed w-full z-40 transition-all duration-700 ease-out ${navbarVisible ? 'py-4 bg-[#F7F7F4]/90 backdrop-blur-md shadow-sm' : 'py-8 bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center relative z-10">
+        <OpticalReveal delay={0}><div className="text-xl font-semibold tracking-tight">Manav Viral Darji.</div></OpticalReveal>
+
+        <div className="hidden md:flex gap-8 text-sm font-medium opacity-70">
+          {['home', 'profile', 'research', 'milestones'].map((id, idx) => (
+            <OpticalReveal delay={0.1 * idx} key={id}>
+              <a
+                href={`#${id}`}
+                className="relative hover:opacity-100 transition-opacity flex items-center gap-2 capitalize"
+                style={{
+                  transform: navPos[id] ? `translate(${navPos[id].x}px, ${navPos[id].y}px)` : 'translate(0,0)',
+                  transition: navPos[id] ? 'transform 0.1s linear' : 'transform 0.5s ease-out',
+                  display: 'inline-block',
+                }}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setNavPos(p => ({ ...p, [id]: {
+                    x: (e.clientX - (rect.left + rect.width / 2)) * 0.35,
+                    y: (e.clientY - (rect.top + rect.height / 2)) * 0.35,
+                  }}));
+                }}
+                onMouseLeave={() => setNavPos(p => ({ ...p, [id]: null }))}
+              >
+                {activeSection === id && <span className="w-1.5 h-1.5 rounded-full bg-[#2B4C3E]" />}
+                {id}
+              </a>
+            </OpticalReveal>
+          ))}
+        </div>
+        <OpticalReveal delay={0.4}>
+          <a href="mailto:darjimanav3@gmail.com" aria-label="Send an email to Manav Darji" className="text-sm font-medium hover:opacity-70 transition-opacity">
+            Initialize Contact
+          </a>
+        </OpticalReveal>
+      </div>
+    </nav>
+  );
+};
+
+
 // --- MAIN APPLICATION ---
 const App = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
-  const [spotlight, setSpotlight] = useState({ x: -200, y: -200 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [navbarVisible, setNavbarVisible] = useState(false);
-
   // Typewriter cycling placeholder
   const chatPlaceholders = ['Ask about skills...', 'Ask about projects...', 'Ask about certifications...', 'Ask about leadership...', 'Ask anything...',];
   const [placeholderIdx, setPlaceholderIdx] = useState(0);
   const [placeholderText, setPlaceholderText] = useState('');
   const [placeholderTyping, setPlaceholderTyping] = useState(true);
-
-  // Nav magnetic state
-  const [navPos, setNavPos] = useState({});
 
   // RAG / Chatbot State
   const [chatOpen, setChatOpen] = useState(false);
@@ -117,8 +235,6 @@ const App = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [userInput, setUserInput] = useState("");
-  const [apiKey, setApiKey] = useState("");
-  const [apiLimitReached, setApiLimitReached] = useState(false);
 
   const chatEndRef = useRef(null);
 
@@ -134,31 +250,8 @@ const App = () => {
     const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
 
-    // Scroll-driven progress bar
-    lenis.on('scroll', ({ progress }) => {
-      setScrollProgress(progress * 100);
-      setNavbarVisible(window.scrollY > 50);
-    });
-
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setSpotlight({ x: e.clientX, y: e.clientY });
-    };
-    const handleMouseOver = (e) => setIsHovering(!!e.target.closest('a, button, .group'));
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id); });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
-
     return () => {
       lenis.destroy();
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
-      observer.disconnect();
     };
   }, []);
 
@@ -182,7 +275,6 @@ const App = () => {
     }
     return () => clearTimeout(timeout);
   }, [placeholderText, placeholderTyping, placeholderIdx]);
-
 
   const getFallbackResponse = (query) => {
     const lowerQuery = query.toLowerCase();
@@ -289,33 +381,11 @@ const App = () => {
         </p>
       </div>
 
-      {/* Cursor Spotlight Glow */}
-      <div
-        className="fixed pointer-events-none z-[9998] hidden md:block"
-        style={{
-          width: 400,
-          height: 400,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(43,76,62,0.10) 0%, rgba(43,76,62,0.04) 40%, transparent 70%)',
-          transform: `translate(${spotlight.x - 200}px, ${spotlight.y - 200}px)`,
-          transition: 'transform 0.12s ease-out',
-        }}
-      />
-
-      {/* Custom Geometric Cursor */}
-      <div
-        className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[9999] hidden md:block"
-        style={{
-          transform: `translate(${mousePos.x - 8}px, ${mousePos.y - 8}px) scale(${isHovering ? 3 : 1})`,
-          opacity: mousePos.x === -100 ? 0 : 1,
-          backgroundColor: isHovering ? "transparent" : "#2B4C3E",
-          border: isHovering ? "1px solid #2B4C3E" : "none",
-          transition: "transform 0.15s ease-out, background-color 0.2s, border 0.2s"
-        }}
-      />
+      {/* Custom Cursor & Spotlight */}
+      <CustomCursor />
 
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 h-1 bg-[#2B4C3E] z-50 transition-all duration-150" style={{ width: `${scrollProgress}%` }} />
+      <ProgressBar />
 
       {/* Latent Space Background */}
       <div className="latent-bg"></div>
@@ -332,7 +402,7 @@ const App = () => {
               <Bot size={18} className="text-[#2B4C3E]" />
               <span className="font-mono text-xs font-bold uppercase tracking-widest">RAG Agent Pipeline</span>
             </div>
-            <button onClick={() => setChatOpen(false)} className="hover:text-[#2B4C3E] transition-colors"><X size={16} /></button>
+            <button onClick={() => setChatOpen(false)} aria-label="Close chat" className="hover:text-[#2B4C3E] transition-colors"><X size={16} /></button>
           </div>
 
           <div data-lenis-prevent className="h-[300px] overflow-y-auto p-4 flex flex-col gap-4 bg-[#F7F7F4] text-sm">
@@ -365,7 +435,9 @@ const App = () => {
             </div>
 
             <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(userInput); }} className="relative mt-1">
+              <label htmlFor="chat-input" className="sr-only">Ask a question about Manav</label>
               <input
+                id="chat-input"
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
@@ -375,6 +447,7 @@ const App = () => {
               />
               <button
                 type="submit"
+                aria-label="Send message"
                 disabled={isTyping || !userInput.trim()}
                 className="absolute right-1 top-1 bottom-1 w-8 flex items-center justify-center bg-[#2B4C3E] text-white rounded-full hover:bg-[#1C1E1A] disabled:opacity-50 transition-colors"
               >
@@ -387,69 +460,37 @@ const App = () => {
         {/* Floating Toggle Button */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
+          aria-label={chatOpen ? 'Close resume chat' : 'Open resume chat'}
+          aria-expanded={chatOpen}
           className={`px-4 py-4 rounded-full font-mono text-sm font-bold shadow-xl flex items-center gap-3 transition-all hover:scale-105 pointer-events-auto ${chatOpen ? 'bg-white text-[#1C1E1A] border border-[#EBEBE6]' : 'bg-[#1C1E1A] text-white hover:bg-[#2B4C3E]'}`}
         >
-          {chatOpen ? <X size={20} /> : <MessageSquare size={20} />}
+          {chatOpen ? <X size={20} aria-hidden="true" /> : <MessageSquare size={20} aria-hidden="true" />}
           {!chatOpen && <span className="hidden sm:block pr-2">Interact with Resume</span>}
         </button>
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-40 transition-all duration-700 ease-out ${navbarVisible ? 'py-4 bg-[#F7F7F4]/90 backdrop-blur-md shadow-sm' : 'py-8 bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center relative z-10">
-          <OpticalReveal delay={0}><div className="text-xl font-semibold tracking-tight">Manav Viral Darji.</div></OpticalReveal>
+      <Navigation />
 
-          <div className="hidden md:flex gap-8 text-sm font-medium opacity-70">
-            {['home', 'profile', 'research', 'milestones'].map((id, idx) => (
-              <OpticalReveal delay={0.1 * idx} key={id}>
-                <a
-                  href={`#${id}`}
-                  className="relative hover:opacity-100 transition-opacity flex items-center gap-2 capitalize"
-                  style={{
-                    transform: navPos[id] ? `translate(${navPos[id].x}px, ${navPos[id].y}px)` : 'translate(0,0)',
-                    transition: navPos[id] ? 'transform 0.1s linear' : 'transform 0.5s ease-out',
-                    display: 'inline-block',
-                  }}
-                  onMouseMove={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    setNavPos(p => ({ ...p, [id]: {
-                      x: (e.clientX - (rect.left + rect.width / 2)) * 0.35,
-                      y: (e.clientY - (rect.top + rect.height / 2)) * 0.35,
-                    }}));
-                  }}
-                  onMouseLeave={() => setNavPos(p => ({ ...p, [id]: null }))}
-                >
-                  {activeSection === id && <span className="w-1.5 h-1.5 rounded-full bg-[#2B4C3E]" />}
-                  {id}
-                </a>
-              </OpticalReveal>
-            ))}
-          </div>
-          <OpticalReveal delay={0.4}>
-            <a href="mailto:darjimanav3@gmail.com" aria-label="Send an email to Manav Darji" className="text-sm font-medium hover:opacity-70 transition-opacity">
-              Initialize Contact
-            </a>
-          </OpticalReveal>
-        </div>
-      </nav>
+      <main id="main-content">
+        {/* 1. HERO SECTION */}
+        <Hero />
 
-      {/* 1. HERO SECTION */}
-      <Hero />
+        {/* 2. Z-AXIS DEPTH LENS (Scrollytelling) */}
+        <FocalDepthQuote />
 
-      {/* 2. Z-AXIS DEPTH LENS (Scrollytelling) */}
-      <FocalDepthQuote />
+        {/* 3. EDUCATION & EPOCH/WEIGHTS CAPABILITIES */}
+        <Profile />
 
-      {/* 3. EDUCATION & EPOCH/WEIGHTS CAPABILITIES */}
-      <Profile />
+        {/* 4. PROGRESSIVE DISCLOSURE PROJECTS GRID */}
+        <Projects />
 
-      {/* 4. PROGRESSIVE DISCLOSURE PROJECTS GRID */}
-      <Projects />
+        {/* 5. EXPERIENCE & ACHIEVEMENTS */}
+        <Milestones />
 
-      {/* 5. EXPERIENCE & ACHIEVEMENTS */}
-      <Milestones />
-
-      {/* 6. FOOTER */}
-      <Footer />
+        {/* 6. FOOTER */}
+        <Footer />
+      </main>
     </div>
   );
 };

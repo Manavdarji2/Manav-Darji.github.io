@@ -19,11 +19,10 @@ export const projects = [
     {
         title: "Aurelia — Luxury Fashion Site",
         category: "Full-Stack & Cloud",
-        impact: "Live on Google Cloud Run",
+        impact: "Deployed via Google Cloud Run",
         tags: ["HTML/CSS/JS", "Python", "Google Cloud Run", "Antigravity MCP"],
         desc: "First live-deployed project built during the GFG × Google Antigravity Workshop. Luxury fashion e-commerce platform containerized via Docker and deployed on Google Cloud Run CLI.",
-        link: "https://aurelia-234264899332.us-central1.run.app/index.html",
-        live: true
+        link: "https://github.com/manav-darji-aiml"
     },
     {
         title: "Mumbai Real Estate Price Predictor",

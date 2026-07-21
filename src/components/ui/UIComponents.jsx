@@ -3,8 +3,15 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 // --- OPTIMIZED NATIVE ANIMATION: NEURAL DECRYPT ---
 export const DecryptText = ({ text, delay = 0, className = "" }) => {
-    const [displayText, setDisplayText] = useState("");
     const mathChars = ['∑', '∫', '∆', 'µ', 'π', 'Ω', 'λ', 'θ', '∞', '≈', '∇', '∂', 'x', 'y'];
+
+    // Initialize with a scrambled version of the text to trigger FCP/LCP immediately
+    const [displayText, setDisplayText] = useState(() => {
+        return text.split("").map(char => {
+            if (char === " ") return " ";
+            return mathChars[Math.floor(Math.random() * mathChars.length)];
+        }).join("");
+    });
 
     useEffect(() => {
         let iteration = 0;
@@ -29,7 +36,11 @@ export const DecryptText = ({ text, delay = 0, className = "" }) => {
         return () => { clearInterval(interval); clearTimeout(timeout); };
     }, [text, delay]);
 
-    return <span className={className}>{displayText || text.replace(/./g, ' ')}</span>;
+    return (
+        <span className={className} aria-label={text} title={text}>
+            {displayText}
+        </span>
+    );
 };
 
 // --- REUSABLE KINETIC COMPONENTS ---
@@ -183,40 +194,32 @@ export const AnimatedCounter = ({ value, className = "" }) => {
     return <span ref={ref} className={className}>{count}</span>;
 };
 
-// --- FLOATING PARTICLES BACKGROUND ---
-export const FloatingParticles = ({ count = 30 }) => {
+// --- FLOATING PARTICLES BACKGROUND (Pure CSS — no JS animation loops) ---
+export const FloatingParticles = ({ count = 25 }) => {
     const particles = Array.from({ length: count }, (_, i) => ({
         id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 3 + 1,
-        duration: Math.random() * 20 + 15,
-        delay: Math.random() * 10,
+        x: (Math.random() * 100).toFixed(2),
+        y: (Math.random() * 100).toFixed(2),
+        size: (Math.random() * 2.5 + 0.8).toFixed(2),
+        duration: (Math.random() * 18 + 14).toFixed(1),
+        delay: (Math.random() * 10).toFixed(1),
+        drift: (Math.random() * 40 - 20).toFixed(1),
     }));
 
     return (
-        <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden" aria-hidden="true">
             {particles.map((p) => (
-                <motion.div
+                <div
                     key={p.id}
                     className="absolute rounded-full bg-[#2B4C3E]"
                     style={{
-                        width: p.size,
-                        height: p.size,
+                        width: `${p.size}px`,
+                        height: `${p.size}px`,
                         left: `${p.x}%`,
                         top: `${p.y}%`,
-                        opacity: 0.12,
-                    }}
-                    animate={{
-                        y: [0, -60, 0],
-                        x: [0, Math.random() * 40 - 20, 0],
-                        opacity: [0.06, 0.18, 0.06],
-                    }}
-                    transition={{
-                        duration: p.duration,
-                        repeat: Infinity,
-                        delay: p.delay,
-                        ease: "easeInOut",
+                        opacity: 0.1,
+                        animation: `floatParticle ${p.duration}s ${p.delay}s infinite ease-in-out`,
+                        '--drift': `${p.drift}px`,
                     }}
                 />
             ))}
